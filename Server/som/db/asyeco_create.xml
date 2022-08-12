@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE create SYSTEM "http://strategyobject.com/dtd/create.dtd"> -->
+<create>
+
+	<table name="CERTIFICATE_ORIGIN_TAB">
+		<column name="INSTANCE_ID" type="INTEGER" null="false"/>
+		<column name="CO_NBR" type="VARCHAR" size="17" />
+		<column name="CO_REG_SER" type="VARCHAR" size="1" />
+		<column name="CO_REG_DAT" type="DATE" />
+		<column name="CO_REG_YER" type="VARCHAR" size="4" />
+		
+		<column name="CO_SUB_SER" type="VARCHAR" size="1" />
+		<column name="CO_SUB_NBR" type="VARCHAR" size="17" />
+		<column name="CO_SUB_DAT" type="DATE" />
+		<column name="CO_SUB_YER" type="VARCHAR" size="4" />
+		
+		
+		<column name="CO_CRN" type="VARCHAR" size="17" />
+		<column name="CO_EXPIRED_DAT" type="DATE" />
+		<column name="CO_CTY_COD"  type="VARCHAR" size="3"/>
+		<column name= "CO_CTY_DSC" type="VARCHAR" size="100"/>
+		<column name= "CO_CMP_PROD_COD" type="VARCHAR" size="10"/>
+		<column name= "CO_CMP_PROD_NAM" type="VARCHAR" size="100"/>
+		<column name= "CO_CMP_PROD_CTY" type="VARCHAR" size="75"/>
+		<column name= "CO_CMP_PROD_ADR" type="VARCHAR" size="75"/>	
+		<column name= "CO_CMP_PROD_TEL" type="VARCHAR" size="17"/>
+		<column name= "CO_CMP_PROD_EMAIL" type="VARCHAR" size="50"/>
+		<column name= "CO_CMP_CONS_NAM" type="VARCHAR" size="100"/>	
+		<column name= "CO_CMP_CONS_CTY" type="VARCHAR" size="75"/>
+		<column name= "CO_CMP_CONS_ADR" type="VARCHAR" size="75"/>	
+		<column name= "CO_CMP_CONS_TEL" type="VARCHAR" size="17"/>
+		<column name= "CO_CMP_CONS_EMAIL" type="VARCHAR" size="50"/>
+		<column name= "CO_CRITERIA_OP" type="BIT" />
+		<column name= "CO_CRITERIA_SW" type="BIT" />
+		<column name= "CO_CRITERIA_TAR_CHG" type="BIT" />
+		<column name= "CO_CRITERIA_PVA_FLG" type="BIT" />	
+		<column name= "CO_CRITERIA_PVA_RAT" type="DOUBLE" />
+		<column name="CO_PCK_NBR" type="INTEGER" />	
+		<column name="CO_PCK_COD" type="VARCHAR" size="5"/>
+		<column name="CO_PCK_DSC" type="VARCHAR" size="75"/>
+		<column name="CO_PCK_MRK" type="VARCHAR" size="100"/>
+		<column name="CO_TAR_COD" type="VARCHAR" size="10"/>	
+		<column name="CO_TAR_DSC" type="VARCHAR" size="255"/>	
+		<column name="CO_GDS_DSC" type="VARCHAR" size="255"/>	
+		<column name="CO_PRODUCT_NBR" type="VARCHAR" size="11"/>	
+		<column name="CO_WGT_GRS" type="DOUBLE" />	
+		<column name="CO_SUP_COD" type="VARCHAR" size="5"/>	
+		<column name="CO_SUP_DSC" type="VARCHAR" size="100"/>	
+		<column name="CO_INV_AMT" type="DOUBLE" />	
+		<column name="CO_CUR_COD" type="VARCHAR" size="3"/>	
+		<column name="CO_CMP_EXP_NAM" type="VARCHAR" size="255"/>	
+		<column name="CO_CMP_EXP_CTY" type="VARCHAR" size="75"/>	
+		<column name="CO_CMP_EXP_SIGN_DAT" type="DATE" />	
+		<column name="CO_AUTH_NAM" type="VARCHAR" size="100"/>
+		<column name="CO_AUTH_CTY" type="VARCHAR" size="100"/>	
+		<column name="CO_AUTH_SIGN_DAT" type="DATE" />	
+		<column name="CO_DAU_MOD" type="VARCHAR" size="3"/>	
+		<column name="CO_CUO_COD" type="VARCHAR" size="5"/>	
+		<column name="CO_CUO_NAM" type="VARCHAR" size="255"/>	
+		<column name="CO_DAU_REG_NBR" type="VARCHAR" size="50"/>	
+		<column name="CO_DAU_REG_DAT" type="DATE"/>	
+		<column name="DPA_EXA_NAM" type="VARCHAR" size="100"/>	
+		<column name="DPA_EXA_COD" type="VARCHAR" size="17"/>	
+		<column name="DPA_EXA_CTY" type="VARCHAR" size="100"/>	
+		<column name="DPA_EXA_SIGN_DAT" type="DATE" />	
+		<column name="DPA_CUO_COD" type="VARCHAR" size="5"/>	
+		<column name="DPA_CUO_NAM" type="VARCHAR" size="255"/>	
+		<column name="DPA_CUO_ADR" type="VARCHAR" size="75"/>	
+		<column name="DEST_EXA_NAM" type="VARCHAR" size="100"/>	
+		<column name="DEST_EXA_COD" type="VARCHAR" size="17"/>
+		<column name="DEST_EXA_CTY" type="VARCHAR" size="100"/>	
+		<column name="DEST_EXA_SIGN_DAT" type="DATE" />	
+		<column name="DPA_CTL_EXA_COD" type="VARCHAR" size="17"/>	
+		<column name="DPA_CTL_EXA_NAM"  type="VARCHAR" size="100"/>		
+		<column name="DPA_CTL_EXA_CTY" type="VARCHAR" size="100"/>
+		<column name="DPA_CTL_EXA_SIGN_DAT" type="DATE"/>
+		<column name="DPA_CTL_RSLT_CORRECT" type="BIT" />
+		<column name="DPA_CTL_RSLT_NOTCORRECT" type="BIT" />
+		
+		<column name="FLP1" 		type="LONGVARBINARY" /> 	
+		
+		<primary_key>		
+			<column name="INSTANCE_ID"/>			
+		</primary_key>
+		
+		<index name="CO_NBR_IDX">
+			<column name="CO_NBR"/>
+		</index>
+		
+		<index name="CO_PRODUCT_NBR_IDX">
+			<column name="CO_PRODUCT_NBR"/>
+		</index>		
+		
+		<index name="CO_CTY_IDX">			
+			<column name="CO_CTY_COD"/>			
+		</index>
+		
+		<index name="CO_CMP_PROD_IDX">
+			<column name="CO_CMP_PROD_COD"/>
+		</index>
+			
+		<index name="CO_CTY_CMP_PROD_IDX">
+			<column name="CO_CTY_COD"/>
+			<column name="CO_CMP_PROD_COD"/>
+		</index>
+		
+		<index name="CO_CTY_YER_IDX">			
+			<column name="CO_CTY_COD"/>	
+			<column name="CO_REG_YER"/>			
+		</index>
+		
+		<index name="CO_DPA_CUO_IDX">			
+			<column name="CO_CUO_COD"/>			
+		</index>
+		
+	</table>	
+	
+	<table name="CO_SERIAL_REGISTRATION">
+		<column name="InstanceId" type="INTEGER" null="false" />
+		<column name="YER" type="INTEGER" />
+		<column name="CTY_COD" type="VARCHAR" size="3" />
+		<column name="CTY_DSC" type="VARCHAR" size="75" />
+		<column name="SIT_COD" type="VARCHAR" size="5" />
+		<column name="SIT_NAM" type="VARCHAR" size="35" />
+		<column name="CHR" type="VARCHAR" size="1" />
+		<column name="SER_INI" type="INTEGER" />
+		<column name="SER_CUR" type="INTEGER" />
+		<primary_key>
+			<column name="InstanceId" />
+		</primary_key>
+	</table>
+	
+	<table name="CO_SERIAL_SUBMIT">
+		<column name="InstanceId" type="INTEGER" null="false" />
+		<column name="YER" type="INTEGER" />
+		<column name="CTY_COD" type="VARCHAR" size="3" />
+		<column name="CTY_DSC" type="VARCHAR" size="75" />
+		<column name="SIT_COD" type="VARCHAR" size="5" />
+		<column name="SIT_NAM" type="VARCHAR" size="35" />
+		<column name="CHR" type="VARCHAR" size="1" />
+		<column name="SER_INI" type="INTEGER" />
+		<column name="SER_CUR" type="INTEGER" />
+		<primary_key>
+			<column name="InstanceId" />
+		</primary_key>
+	</table>
+	
+</create>

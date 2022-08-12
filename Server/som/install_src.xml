@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     **************************************************************************
+     * @ProjectName_____________________________________@    Version: @VerNr@ *
+     *                                                                        *
+     * This software is the proprietary information of STRATEGY OBJECT.       *
+     * Use is subject to license terms.                                       *
+     *                                                                        *
+     * Copyright (c) 1997-2009 STRATEGY OBJECT                                *
+     * All rights reserved.                           @VersionDate__________@ *
+     **************************************************************************
+-->
+<!DOCTYPE module SYSTEM "http://www.strategyobject.com/dtd/install.dtd">
+
+<module name="@ModuleBaseName@">
+  <property name="locale_dir" value="${so.installer.locale.dir}"/>
+  <property name="cfg_dir" value="${so.installer.config.dir}"/>
+
+  <!--
+    Copy files into server directory.
+  -->
+  <copy toDir="${so.installer.module.dir}">
+    <fileset dir="/modules">
+      <include name="**/*.jar"/>
+    </fileset>
+  </copy>
+
+  <!--
+    Properties for DB.
+  -->
+
+	<db manager="${asyeco.drv_manager}" 
+	    url="${asyeco.url}" 
+	    user="${asyeco.user_name}"
+		password="${asyeco.password}">
+		<create>
+			<fileset dir="db">
+				<include name="asyeco_create.xml" />
+			</fileset>
+		</create>
+		<insert>
+			<fileset dir="db">
+				<include name="asyeco_insert.xml" />
+			</fileset>
+		</insert>
+		<appserver dbsource="jdbc/AsyEco" name="AsyEco">
+			<pool minPoolSize="1" maxPoolSize="-1" maxIdleTime="5" />
+		</appserver>
+	</db>
+  
+  
+  <db manager="${gcf.drv_manager}"
+      url="${gcf.url}"
+      user="${gcf.user_name}"
+      password="${gcf.password}">
+    <GCF>
+      <table type="History" name="Historyun_asyeco"/>
+      <table type="IED" name="IEDun_asyeco"/>
+      <table type="Locks" name="Locksun_asyeco"/>
+      <table type="Track" name="Trackun_asyeco"/>
+    </GCF>
+    <appserver dbsource="jdbc/un.asyeco.gcf" name="un.asyeco.gcf">
+      <pool minPoolSize="1" maxPoolSize="-1" maxIdleTime="5"/>
+    </appserver>
+  </db>
+
+  <db manager="${multimediainfo.db.drv_manager}"
+      url="${multimediainfo.db.url}"
+      user="${multimediainfo.db.user_name}"
+      password="${multimediainfo.db.password}">
+    <tableprototype module="so.ems" name="Multimediainfo">
+      <table type="Multimedia" name="un_asyecoMultimedia"/>
+      <table type="MultimediaResources" name="un_asyecoMultimediaRes"/>
+      <table type="MultimediaResourcesProperties" name="un_asyecoMultimediaResProps"/>
+      <table type="ResourcesDetails" name="un_asyecoResDetails"/>
+      <table type="ContentsDetails" name="un_asyecoContentsDetails"/>
+      <table type="IDGenerator" name="un_asyecoIDGenerator"/>
+    </tableprototype>
+    <appserver dbsource="jdbc//un.asyeco.Multimediainfo" name="un.asyeco.Multimediainfo">
+		  <pool minPoolSize="1" maxPoolSize="-1" maxIdleTime="5"/>
+	  </appserver>
+  </db>
+
+  <db manager="${storage.db.drv_manager}"
+      url="${storage.db.url}"
+      user="${storage.db.user_name}"
+      password="${storage.db.password}">
+    <tableprototype module="so.ems" name="Storage">
+      <table type="ContentDatas" name="un_asyecoContentDatas"/>
+    </tableprototype>
+    <appserver dbsource="jdbc//un.asyeco.Storage" name="un.asyeco.Storage">
+      <pool minPoolSize="1" maxPoolSize="-1" maxIdleTime="5"/>
+	  </appserver>
+  </db>
+
+  <!--
+    Import into Kernel DB
+  -->
+  <system>
+    <!--
+      Modify config files
+    -->
+    <config name="properties">
+      <fileset dir="config">
+        <include name="**/*.properties"/>
+      </fileset>
+    </config>
+
+    <config name="language">
+      <fileset dir="lng">
+        <include name="**/*.properties"/>
+      </fileset>
+    </config>
+
+    <config name="format">
+      <fileset dir="format">
+        <include name="**/*.properties"/>
+      </fileset>
+    </config>
+
+	<BU name="Customs CO">Customs CO</BU>
+	<binder name="B_eco" status="Created">
+		<field name="server" value="un.asyeco.eco.server.S_eCO" />
+		<field name="dom" value="un.asyeco.eco.D_eCO" />
+		<field name="client" value="un.asyeco.eco.client.DC_eCO" />
+		<access bu="Customs CO">
+			<full />
+		</access>
+	</binder>
+	
+	<binder name="B_COSerialReg" status="Registered">
+		<field name="server" value="un.asyeco.serial.eco.reg.server.S_Reg" />
+		<field name="dom" value="un.asyeco.serial.eco.reg.D_Reg" />
+		<field name="client" value="un.asyeco.serial.eco.reg.client.DC_Reg" />
+		<access bu="Customs CO">
+			<full />
+		</access>
+	</binder>
+	
+	<binder name="B_COSerialSubmit" status="Registered">
+		<field name="server" value="un.asyeco.serial.ast.server.S_Ast" />
+		<field name="dom" value="un.asyeco.serial.ast.D_Ast" />
+		<field name="client" value="un.asyeco.serial.ast.client.DC_Ast" />
+		<access bu="Customs CO">
+			<full />
+		</access>
+	</binder>	
+	
+
+    <DL>
+    	<folder name="ASYCUDA" icon="img/UN_VerySmallFlag.gif">
+			<access bu="Customs CO">
+				<full />
+			</access>
+				<folder name="Certificate of Origin" icon="">
+					<access bu="Customs CO">
+						<full />
+					</access>
+						<item name="Certificate of Origin" icon="">
+							<field name="binder" value="B_eco" />
+							<field name="skin" value="un.asyeco.eco.client.VD_eCO" />
+							<access bu="Customs CO">
+								<operation name="Design" />
+								<operation name="Create" />
+								<operation name="View" />
+								<operation name="Find" />
+								<operation name="Accept" />
+								<operation name="Reject" />
+								<operation name="Submit" />
+								<operation name="Validate" />
+								<operation name="Receive" />
+								<operation name="Print" />
+								<operation name="Modify Reject" />	
+								<operation name="Lock" />	
+								<operation name="Unlock" />								
+							</access>
+						</item>
+				</folder>
+			<!-- SYSTEM FACE LIFT - July 2010 -->
+			<folder name="System Configuration" icon="img/Icon_Folder.gif">
+				<access bu="Customs CO">
+					<full />
+				</access>
+				<folder name="Serial Numbers" icon="">
+					<access bu="Customs CO">
+						<full />
+					</access>
+						<folder name="Certificate of Origin" icon="">
+							<access bu="Customs CO">
+								<full />
+							</access>
+							<item name="Certificate of Origin Registration" icon="">
+								<field name="binder" value="B_COSerialReg" />
+								<field name="skin" value="un.asyeco.serial.eco.reg.client.VD_Reg" />
+								<access bu="Customs CO">
+									<operation name="Find" />
+									<operation name="View" />
+									<operation name="Create" />
+									<operation name="Amend"/>
+									<operation name="Delete"/>
+									<operation name="Lock" />
+									<operation name="Unlock" />						
+								</access>
+							</item>	
+							
+							<item name="Certificate of Origin Submission" icon="">
+								<field name="binder" value="B_COSerialSubmit" />
+								<field name="skin" value="un.asyeco.serial.ast.client.VD_Ast" />
+								<access bu="Customs CO">
+									<operation name="Find" />
+									<operation name="View" />
+									<operation name="Create" />
+									<operation name="Amend"/>
+									<operation name="Delete"/>
+									<operation name="Lock" />
+									<operation name="Unlock" />						
+								</access>
+							</item>								
+							
+						</folder>			
+				</folder>
+			</folder>
+				<!-- SYSTEM FACE LIFT - END -->
+		</folder>
+    </DL>
+
+  </system>
+
+</module>

@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Module: un.asyeco/1
+Module-Name: ECOWAS - ASYECO electronic certificate of origin
+Module-Type: Application Modules
+Module-License: ECOWAS
+Module-Summary: ECOWAS - ASYECO electronic certificate of origin
+Module-Description: The module asyeco is a new module which are create to manage and exchange \n
+ the signed electronic certificate of origin in ECOWAS region\n
+ \n
+ Copyright (c) 2022 ECOWAS\n
+ All rights reserved.
+Module-Specification-Version: 1.0
+Module-Kernel-Dependencies:  SERVER/1 >= 2.2.25.3
+Module-Module-Dependencies: so.tes/1 >= 1.3.1,so.admin/1 >= 3.3.13.1,so.ems/1 >= 1.4.1,so.hte/1 >= 2.2.7,so.report/1 >= 3.8.2,un.adtcommons/1 >= 4.2.2,un.asybridge/1 >= 4.2.1,un.asygate/1 >= 4.2.2,un.asyref/1 >= 4.2.1,un.asys2s/1 >= 4.3.2
+Module-Install: un.asyeco.module.UNModule
+Class-Path: ext/asyeco.jar
+Shared-Jar: asyeco.jar
+Client-Jar: asyecoc.jar
+Server-Jar: asyecos.jar
+

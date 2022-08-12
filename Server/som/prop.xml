@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     **************************************************************************
+     * @ProjectName_____________________________________@    Version: @VerNr@ *
+     *                                                                        *
+     * This software is the proprietary information of STRATEGY OBJECT.       *
+     * Use is subject to license terms.                                       *
+     *                                                                        *
+     * Copyright (c) 1997-2009 STRATEGY OBJECT                                *
+     * All rights reserved.                           @VersionDate__________@ *
+     **************************************************************************
+-->
+
+<properties>
+   <group type="connection">
+      <property name="asyeco.drv_manager" from="driver" />
+      <property name="asyeco.url" from="url" default="AsyEco" />
+      <property name="asyeco.user_name" from="user" />
+      <property name="asyeco.password" from="password" />
+      <description><![CDATA[Connection to database AsyEco is required.
+If that database is not available, please create it.
+Then enter connection properties in this form.]]></description>
+   </group>
+  <group type="connection">
+    <property name="gcf.drv_manager" from="driver" />
+    <property name="gcf.url" from="url"  default="AsyEcoGCF" />
+    <property name="gcf.user_name" from="user" />
+    <property name="gcf.password" from="password" />
+    <description><![CDATA[Connection to database Module GCF is required.
+This database is available. You can create new or use the same database.
+Then enter connection properties in this form.]]></description>
+  </group>
+<group type="connection">
+    <property name="multimediainfo.db.drv_manager" from="driver" />
+    <property name="multimediainfo.db.url" from="url" default="xxxems_media_info.mod" />
+    <property name="multimediainfo.db.user_name" from="user" />
+    <property name="multimediainfo.db.password" from="password" />
+    <description><![CDATA[Connection to database Multimedia info system of module Demo is required.
+This database is available. You can create new or use the same database.
+Then enter connection properties in this form.]]></description>
+  </group>
+  <group type="connection">
+    <property name="storage.db.drv_manager" from="driver" />
+    <property name="storage.db.url" from="url" default="xxxems_storage.mod" />
+    <property name="storage.db.user_name" from="user" />
+    <property name="storage.db.password" from="password" />
+    <description><![CDATA[Connection to database Multimedia Storage system of module Demo is required.
+This database is available. You can create new or use the same database.
+Then enter connection properties in this form.]]></description>
+  </group>
+</properties>

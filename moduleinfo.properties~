@@ -1,0 +1,27 @@
+#
+#    **************************************************************************
+#    * @ProjectName_____________________________________@    Version: @VerNr@ *
+#    *                                                                        *
+#    * This software is the proprietary information of STRATEGY OBJECT.       *
+#    * Use is subject to license terms.                                       *
+#    *                                                                        *
+#    * Copyright (c) 1997-2009 STRATEGY OBJECT                                *
+#    * All rights reserved.                           @VersionDate__________@ *
+#    **************************************************************************
+
+# Sample ResourceBundle properties file
+
+# The
+module.name=un.asyeco
+module.release=1
+module.fullname=ECOWAS - ASYECO electronic certificate of origin
+module.version=1.0
+module.type=Application Modules
+module.basename=${module.name}/${module.release}
+module.license=ECOWAS
+module.summary=ECOWAS - ASYECO electronic certificate of origin
+module.description=The module asyeco is a new module which are create to manage and exchange \\n\n\
+\ the signed electronic certificate of origin in ECOWAS region\\n\n\
+\ \\n\n\
+\ Copyright (c) 2022 ECOWAS\\n\n\
+\ All rights reserved.
