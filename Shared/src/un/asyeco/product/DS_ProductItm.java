@@ -20,9 +20,11 @@ import so.kernel.core.Rule;
 import so.kernel.core.TransactionEvent;
 import so.kernel.core.interfaces.KDocumentInterface;
 import so.kernel.core.rules.KR_DataMandatory;
+import un.asyeco.product.R_CheckBoxGroup;
 import un.kernel.core.KDocument;
 import un.kernel.core.rules.KR_HTConnectorFactory;
 import un.kernel.core.rules.KR_HTSetDateFactory;
+import un.kernel.core.rules.KR_NumberedSubDocumentManager;
 import un.kernel.util.AWClientTranslator;
 
 
@@ -46,6 +48,9 @@ public final class DS_ProductItm extends KNumberedSubDocument implements C_Produ
 	 * 
 	 */
 	public void define_DataModel() {
+		
+		DataSet product = seg(PRODUCT);
+		product.add(NBR);
 			
 		DataSet criteria = seg(CRITERIA);
 		criteria.seg(OP).add(FLG);
@@ -101,11 +106,6 @@ public final class DS_ProductItm extends KNumberedSubDocument implements C_Produ
               
         ds(CRITERIA).ds(PVA).de(RAT).setHumanName(lng("Rate"));   
         
-    	// 4. Quantity, nature, of goods and number of packages 
-        ds(PCK).de(COD).setHumanName(lng("Kind of packages code")); 
-        ds(PCK).de(DSC).setHumanName(lng("Kind of packages name"));       
-        ds(PCK).de(MRK).setHumanName(lng("Mark of goods")); 
-        
     	// 5. Tariff and statistical nomenclature       
         ds(TAR).de(COD).setHumanName(lng("Tariff code on 10 digits")); 
         ds(TAR).de(DSC).setHumanName(lng("Commercial description of goods"));       
@@ -113,10 +113,6 @@ public final class DS_ProductItm extends KNumberedSubDocument implements C_Produ
     	// 6. Approval no of goods
         ds(PRODUCT).de(NBR).setHumanName(lng("Number of approval goods"));     
         
-    	// 7. Gross weight or other measure
-        ds(SUP).de(COD).setHumanName(lng("Unit of measure code")); 
-        ds(SUP).de(DSC).setHumanName(lng("Unit of measure description")); 
-                
 	}
 
 	/*
@@ -163,10 +159,10 @@ public final class DS_ProductItm extends KNumberedSubDocument implements C_Produ
 //		//addRule(new R_Init_Document(), GUI_DOCUMENT_INIT);
 //		de(WDE).tryToSetContent(new Date());
 //		
-//		ds(CRITERIA).de(OP).addRule(new R_CheckBoxGroup(), DATA_VERIFY);		
-//		ds(CRITERIA).de(SW).addRule(new R_CheckBoxGroup(), DATA_VERIFY);
-//		ds(CRITERIA).ds(TAR).addRule(new R_CheckBoxGroup(), DATA_VERIFY);
-//		ds(CRITERIA).ds(PVA).addRule(new R_CheckBoxGroup(), DATA_VERIFY);
+		ds(CRITERIA).ds(OP).de(FLG).addRule(new R_CheckBoxGroup(), DATA_VERIFY);		
+		ds(CRITERIA).ds(SW).de(FLG).addRule(new R_CheckBoxGroup(), DATA_VERIFY);
+		ds(CRITERIA).ds(TAR).ds(CHG).de(FLG).addRule(new R_CheckBoxGroup(), DATA_VERIFY);
+		ds(CRITERIA).ds(PVA).de(FLG).addRule(new R_CheckBoxGroup(), DATA_VERIFY);
 //
 //		
 //
@@ -208,7 +204,7 @@ public final class DS_ProductItm extends KNumberedSubDocument implements C_Produ
 //		define_ReferenceDataRule();
 //		define_AttachedFinderRule();
 //		define_DocumentRules();
-//		//define_MultiItemManagementRule() ;
+		//define_MultiItemManagementRule() ;
 	}
 
 	public void define_ReferenceDataRule() {
@@ -219,15 +215,15 @@ public final class DS_ProductItm extends KNumberedSubDocument implements C_Produ
 		
       
     	// 4. Quantity, nature, of goods and number of packages       
-        ds(PCK).de(COD).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);
-        ds(PCK).de(MRK).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);       
+        //ds(PCK).de(COD).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);
+        //ds(PCK).de(MRK).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);       
     	// 5. Tariff and statistical nomenclature       
         ds(TAR).de(COD).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY); 
         ds(TAR).de(DSC).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);               
     	// 6. Approval no of goods
         //ds(PRODUCT).de(NBR).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);                
     	// 7. Gross weight or other measure 
-        ds(SUP).de(COD).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);        
+        //ds(SUP).de(COD).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);        
 	}
 
 	public void define_AttachedFinderRule() {
@@ -236,13 +232,13 @@ public final class DS_ProductItm extends KNumberedSubDocument implements C_Produ
 
 	}
 
-	/*public void define_MultiItemManagementRule() {
+	public void define_MultiItemManagementRule() {
 
 		// Manage the item (ITM) sub-document
-		KR_NumberedSubDocumentManager rule = new KR_NumberedSubDocumentManager(ds(ITM), ACT_ITM_NEW, ACT_ITM_DEL);
-		addRule(rule, ACT_ITM_NEW);
-		addRule(rule, ACT_ITM_DEL);
-	}*/
+//		KR_NumberedSubDocumentManager rule = new KR_NumberedSubDocumentManager(ds(ITM), ACT_ITM_NEW, ACT_ITM_DEL);
+//		addRule(rule, ACT_ITM_NEW);
+//		addRule(rule, ACT_ITM_DEL);
+	}
 
 
 	private static String lng(String property) {

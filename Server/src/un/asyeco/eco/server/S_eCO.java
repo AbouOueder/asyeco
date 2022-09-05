@@ -80,7 +80,7 @@ public class S_eCO extends GCFServerBinder implements C_eCO {
 		// Attached documents
 		addServerRule(HistorizedServerRuleFactory.getServerRule(this, new int[] { ATD_TAB_LOAD }, ATD_TAB));
 		
-		// Attached documents
+		// Producers
 		addServerRule(HistorizedServerRuleFactory.getServerRule(this, new int[] { PROD_TAB_LOAD }, PROD_TAB));
 
 		addServerRule(new SR_ChkTar(this), CHK_TAR);

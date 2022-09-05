@@ -86,6 +86,11 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
 	//CO criteria goods sufficiently processed or worked with value added - Flag
 	transient private JCheckBox Co_Criteria_Pva_Flg = new JCheckBox();
 	
+	//CO Schemas - Flag
+	transient private JCheckBox Co_Cedeao_Flg = new JCheckBox();
+	
+	transient private JCheckBox Co_Uemoa_Flg = new JCheckBox();
+	
 	//CO criteria goods sufficiently processed or worked with value added rate
 	transient private ElfField Co_Criteria_Pva_Rat = elfFieldPool.getElfField();
 
@@ -287,8 +292,12 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
         add(510, 222, 400, 20, lng("b.1 According to the criterion of changing of tariff position"));            
         add(510, 252, 300, 20, lng("b.2 According to the criterion of value added"));     
         add(510, 282, 100, 20, lng("Rate"));  
+        add(720, 282, 40, 20, lng("%"));
         add(490, 332, 300, 20, lng("ECOWAS scheme (in compliance with the"));
         add(490, 347, 400, 20, lng("provision of Protocol A/.P1/1/03, articles 2,3 & 4)"));
+        add(490, 377, 350, 20, lng("UEMOA scheme (in compliance with the provision of "));
+        add(490, 392, 350, 20, lng("Protocols N°...CEG/UEMOA/01)"));
+
         
     	// 4. Quantity, nature, of goods and number of packages
         add(5, 467, 200, 20, lng("4. Quantity, nature of goods"));  
@@ -395,6 +404,10 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
         add(890, 243, 30, 40, Co_Criteria_Pva_Flg , lng(""));
         //grp_TarPva.add(Co_Criteria_Pva_Flg);
         add(615, 282, 100, 20, Co_Criteria_Pva_Rat, lng(""));  
+        
+        add(890, 340, 30, 20, Co_Cedeao_Flg, lng(""));
+        add(890, 380, 30, 20, Co_Uemoa_Flg,  lng(""));
+
         
     	// 4. Quantity, nature, of goods and number of packages
         add(65, 527, 123, 20, Co_Pck_Nbr, lng("Quantity of packages")); 
@@ -517,6 +530,10 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
         addFacetCheck(Co_Criteria_Pva_Flg, doc.ds(CO).ds(CRITERIA).ds(PVA).de(FLG) );
               
         addFacetNumeric(Co_Criteria_Pva_Rat, doc.ds(CO).ds(CRITERIA).ds(PVA).de(RAT), "RAT");  
+        
+        addFacetCheck(Co_Cedeao_Flg, doc.ds(CO).ds(CRITERIA).ds(CEDEAO).de(FLG) );
+        addFacetCheck(Co_Uemoa_Flg, doc.ds(CO).ds(CRITERIA).ds(UEMOA).de(FLG) );
+
         
     	// 4. Quantity, nature, of goods and number of packages
         addFacetNumericPositive(Co_Pck_Nbr, doc.ds(CO).ds(PCK).de(NBR), "Pack_Nbr"); 

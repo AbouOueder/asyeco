@@ -9,8 +9,6 @@ package un.asyeco.product.client;
 
 import so.kernel.core.Data;
 import un.adtcommons.client.visual.KVisualDocument;
-import un.asyeco.eco.C_eCO;
-import un.asyeco.eco.D_eCO;
 import un.asyeco.product.C_Product;
 import un.asyeco.product.D_Product;
 
@@ -41,7 +39,8 @@ public class VD_Product extends KVisualDocument implements C_Product {
  	 */
 	public void initializeForms() {
 		addForm(new VF_Product()); 
-		addForm(new VF_ScannedDocs()); 
+		addForm(new VF_ProductItem()); 
+		//addForm(new VF_ScannedDocs()); 
 
 		
 		

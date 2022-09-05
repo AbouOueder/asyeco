@@ -192,6 +192,10 @@ public interface C_eCO {
 	    
 	    static public final String SUB = "SUB"; // Submit
 	    
+	    static public final String CEDEAO = "CEDEAO"; // CEDEAO
+	    
+	    static public final String UEMOA = "UEMOA"; // UEMOA
+	    
 	    static public final String Warning_msg = "WMG";
 
 

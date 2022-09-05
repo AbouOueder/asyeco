@@ -8,7 +8,6 @@
 package un.asyeco.product.client;
 
 import so.kernel.client.VisualForm;
-import un.asyeco.eco.C_eCO;
 import un.asyeco.product.C_Product;
 
 
@@ -29,7 +28,7 @@ public class VF_Product extends VisualForm implements C_Product {
  	 * @generated NO
  	 */
 	public VF_Product() {
-		super(lng("Certificate"));
+		super(lng("Producer"));
 	}	
 
 
@@ -53,5 +52,6 @@ public class VF_Product extends VisualForm implements C_Product {
 		// TODO Auto-generated method stub
 		addPage(new VP_Product());
 	}
+	
 	
 }

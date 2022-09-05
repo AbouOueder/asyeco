@@ -15,15 +15,21 @@ public class R_CheckBoxGroup extends Rule implements C_eCO {
 			    doc.ds(CO).ds(CRITERIA).de(SW).tryToSetContent(false);
 			    doc.ds(CO).ds(CRITERIA).ds(TAR).de(CHG).tryToSetContent(false);
 			    doc.ds(CO).ds(CRITERIA).ds(PVA).de(FLG).tryToSetContent(false);
+			    doc.ds(CO).ds(CRITERIA).ds(PVA).de(RAT).setEnabled(false);
 			    doc.ds(CO).ds(CRITERIA).de(SW).changeOriginalContent();
-			    doc.ds(CO).ds(CRITERIA).ds(TAR).changeOriginalContent();
+			    doc.ds(CO).ds(CRITERIA).ds(TAR).de(CHG).changeOriginalContent();
 			    doc.ds(CO).ds(CRITERIA).ds(PVA).de(FLG).changeOriginalContent();
+			    doc.ds(CO).ds(CRITERIA).ds(PVA).de(RAT).tryToSetContentNull();
 			}
 
 		} else if (e.getDataField() == doc.ds(CO).ds(CRITERIA).de(SW)) {
 			if (doc.ds(CO).ds(CRITERIA).de(SW).getBoolean(false)) {
-				doc.ds(CO).ds(CRITERIA).de(OP).tryToSetContent(false);				
-				doc.ds(CO).ds(CRITERIA).de(OP).changeOriginalContent();				
+				doc.ds(CO).ds(CRITERIA).de(OP).tryToSetContent(false);	
+				doc.ds(CO).ds(CRITERIA).ds(TAR).de(CHG).tryToSetContent(false);
+				doc.ds(CO).ds(CRITERIA).ds(PVA).de(RAT).setEnabled(false);
+				doc.ds(CO).ds(CRITERIA).de(OP).changeOriginalContent();	
+				doc.ds(CO).ds(CRITERIA).ds(TAR).de(CHG).changeOriginalContent();
+				doc.ds(CO).ds(CRITERIA).ds(PVA).de(RAT).tryToSetContentNull();
 			}
 
 		} else if (e.getDataField() == doc.ds(CO).ds(CRITERIA).ds(TAR).de(CHG)){
@@ -31,19 +37,34 @@ public class R_CheckBoxGroup extends Rule implements C_eCO {
 				doc.ds(CO).ds(CRITERIA).de(OP).tryToSetContent(false);
 				doc.ds(CO).ds(CRITERIA).de(SW).tryToSetContent(true);
 				doc.ds(CO).ds(CRITERIA).ds(PVA).de(FLG).tryToSetContent(false);
+				doc.ds(CO).ds(CRITERIA).ds(PVA).de(RAT).setEnabled(false);
 				doc.ds(CO).ds(CRITERIA).de(OP).changeOriginalContent();
 				doc.ds(CO).ds(CRITERIA).de(SW).changeOriginalContent();
 				doc.ds(CO).ds(CRITERIA).ds(PVA).de(FLG).changeOriginalContent();
+				doc.ds(CO).ds(CRITERIA).ds(PVA).de(RAT).tryToSetContentNull();
 			}
 
 		} else if (e.getDataField() == doc.ds(CO).ds(CRITERIA).ds(PVA).de(FLG)){
 			if (doc.ds(CO).ds(CRITERIA).ds(PVA).de(FLG).getBoolean(false)) {
 				doc.ds(CO).ds(CRITERIA).de(OP).tryToSetContent(false);
 				doc.ds(CO).ds(CRITERIA).de(SW).tryToSetContent(true);
-				doc.ds(CO).ds(CRITERIA).ds(TAR).de(CHG).tryToSetContent(false);				
+				doc.ds(CO).ds(CRITERIA).ds(TAR).de(CHG).tryToSetContent(false);	
+				doc.ds(CO).ds(CRITERIA).ds(PVA).de(RAT).setEnabled(true);
 				doc.ds(CO).ds(CRITERIA).de(OP).changeOriginalContent();
 				doc.ds(CO).ds(CRITERIA).de(SW).changeOriginalContent();
 				doc.ds(CO).ds(CRITERIA).ds(TAR).de(CHG).changeOriginalContent();
+			}
+
+		} else if (e.getDataField() == doc.ds(CO).ds(CRITERIA).ds(CEDEAO).de(FLG)){
+			if (doc.ds(CO).ds(CRITERIA).ds(CEDEAO).de(FLG).getBoolean(false)) {
+				doc.ds(CO).ds(CRITERIA).ds(UEMOA).de(FLG).tryToSetContent(false);
+				doc.ds(CO).ds(CRITERIA).ds(UEMOA).de(FLG).changeOriginalContent();
+			}
+
+		} else if (e.getDataField() == doc.ds(CO).ds(CRITERIA).ds(UEMOA).de(FLG)){
+			if (doc.ds(CO).ds(CRITERIA).ds(UEMOA).de(FLG).getBoolean(false)) {
+				doc.ds(CO).ds(CRITERIA).ds(CEDEAO).de(FLG).tryToSetContent(false);
+				doc.ds(CO).ds(CRITERIA).ds(CEDEAO).de(FLG).changeOriginalContent();
 			}
 
 		} else if (e.getDataField() == doc.ds(DPA).ds(CTL).ds(RSLT).de(CORR)){

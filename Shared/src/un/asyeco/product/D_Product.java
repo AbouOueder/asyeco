@@ -15,6 +15,7 @@ import java.util.Date;
 import so.kernel.core.Data;
 import so.kernel.core.DataField;
 import so.kernel.core.DataSet;
+import so.kernel.core.KNumberedSubDataSet;
 import so.kernel.core.Rule;
 import so.kernel.core.TransactionEvent;
 import so.kernel.core.interfaces.KDocumentInterface;
@@ -22,7 +23,9 @@ import so.kernel.core.rules.KR_DataMandatory;
 import un.kernel.core.KDocument;
 import un.kernel.core.rules.KR_HTConnectorFactory;
 import un.kernel.core.rules.KR_HTSetDateFactory;
+import un.kernel.core.rules.KR_NumberedSubDocumentManager;
 import un.kernel.util.AWClientTranslator;
+
 
 
 /**
@@ -56,20 +59,24 @@ public final class D_Product extends KDocument implements C_Product {
 		DataSet expired = ide.seg(EXPIRED);
 		expired.add(DAT);
 		
-		DataSet cty = seg(CTY);
-		cty.add(COD);
-		cty.add(DSC);
+		DataSet tot = seg(TOT);	
+		tot.add(ITM);
+//		DataSet cty = seg(CTY);
+//		cty.add(COD);
+//		cty.add(DSC);
 		
 		DataSet cmp = seg(CMP);
 		DataSet prod = cmp.seg(PROD);
 		prod.add(COD);
 		prod.add(NAM);
-		prod.add(CTY);
+		//prod.add(CTY);
 		prod.add(ADR);
 		prod.add(ADR2);
 		prod.add(TEL);
 		prod.add(EMAIL);
 		prod.add(WSITE);
+		prod.seg(CTY).add(COD);
+		prod.ds(CTY).add(DSC);
 		
 		DataSet scan = seg(SCAN);		
 		scan.add(COD);
@@ -77,6 +84,7 @@ public final class D_Product extends KDocument implements C_Product {
 		scan.add(LST); 
 		add(FLP1);
 		
+		numberedItm(ITM, new DS_ProductItm());
 
 		define_DataInformation();
 		
@@ -87,8 +95,8 @@ public final class D_Product extends KDocument implements C_Product {
 		setHumanName("");
 		
 	       //Header
-        ds(CTY).de(COD).setHumanName(lng("Country code of Certificate of origin")); 
-        ds(CTY).de(DSC).setHumanName(lng("Country name of Certificate of origin"));       
+//        ds(CTY).de(COD).setHumanName(lng("Country code of Certificate of origin")); 
+//        ds(CTY).de(DSC).setHumanName(lng("Country name of Certificate of origin"));       
           
         // 1. Producer informations
         ds(CMP).ds(PROD).de(COD).setHumanName(lng("Registration N° of producer"));   
@@ -105,7 +113,7 @@ public final class D_Product extends KDocument implements C_Product {
 	 * Definition of the Finder model
 	 */
 	public void define_FinderModel() {
-		//define_Finder(F_eCO.finder);
+		define_Finder(F_Product.finder);
 		
 	}
 
@@ -126,13 +134,13 @@ public final class D_Product extends KDocument implements C_Product {
 
 	public void define_CrossImplHTModel() {
 		
-		defineHistorizedTable(CUO_TAB, CUO_TAB_EVENT);
-		defineHistorizedTable(CTY_TAB, CTY_TAB_EVENT);
-		defineHistorizedTable(UOM_TAB, UOM_TAB_EVENT);
-		defineHistorizedTable(PKG_TAB, PKG_TAB_EVENT);
+		//defineHistorizedTable(CUO_TAB, CUO_TAB_EVENT);
+		//defineHistorizedTable(CTY_TAB, CTY_TAB_EVENT);
+		//defineHistorizedTable(UOM_TAB, UOM_TAB_EVENT);
+		//defineHistorizedTable(PKG_TAB, PKG_TAB_EVENT);
 		defineHistorizedTable(TAR_TAB, TAR_TAB_EVENT);
-		defineHistorizedTable(CUR_TAB, CUR_TAB_EVENT);
-		defineHistorizedTable(ATD_TAB, ATD_TAB_EVENT);
+		//defineHistorizedTable(CUR_TAB, CUR_TAB_EVENT);
+		//defineHistorizedTable(ATD_TAB, ATD_TAB_EVENT);
 		defineHistorizedTable(PROD_TAB, PROD_TAB_EVENT);
 
 	}
@@ -143,9 +151,9 @@ public final class D_Product extends KDocument implements C_Product {
 	 */
 	public void define_ClientBusinessRule() {
 
-//		addRule(new R_Init_Document(), DOCUMENT_INIT);
-//		//addRule(new R_Init_Document(), GUI_DOCUMENT_INIT);
-//		de(WDE).tryToSetContent(new Date());
+		addRule(new R_Init_Document(), DOCUMENT_INIT);
+		//addRule(new R_Init_Document(), GUI_DOCUMENT_INIT);
+		de(WDE).tryToSetContent(new Date());
 //
 //		// *****************Customs Office*********************//
 //		Rule ruleDateOffice = KR_HTSetDateFactory.getSetDateRule(this, CUO_TAB,	new DataField());
@@ -154,7 +162,7 @@ public final class D_Product extends KDocument implements C_Product {
 //		// *****************Country*********************//
 //		Rule rule2 = KR_HTSetDateFactory.getSetDateRule(this, CTY_TAB,	new DataField());
 //		de(WDE).addRule(rule2, DATA_VERIFY);
-//
+
 //		// *****************Unit of Measure*********************//
 //		Rule rule3 = KR_HTSetDateFactory.getSetDateRule(this, UOM_TAB,	new DataField());
 //		de(WDE).addRule(rule3, DATA_VERIFY);
@@ -163,10 +171,10 @@ public final class D_Product extends KDocument implements C_Product {
 //		Rule rule4 = KR_HTSetDateFactory.getSetDateRule(this, PKG_TAB, new DataField());
 //		de(WDE).addRule(rule4, DATA_VERIFY);
 //		
-//		// *****************Tariff*********************//
-//		Rule rule5 = KR_HTSetDateFactory.getSetDateRule(this, TAR_TAB, new DataField());
-//		de(WDE).addRule(rule5, DATA_VERIFY);
-//
+		// *****************Tariff*********************//
+		Rule rule5 = KR_HTSetDateFactory.getSetDateRule(this, TAR_TAB, new DataField());
+		de(WDE).addRule(rule5, DATA_VERIFY);
+
 //		// *****************Currency*********************//
 //		Rule rule6 = KR_HTSetDateFactory.getSetDateRule(this, CUR_TAB, new DataField());
 //		de(WDE).addRule(rule6, DATA_VERIFY);
@@ -175,10 +183,10 @@ public final class D_Product extends KDocument implements C_Product {
 //		Rule rule7 = KR_HTSetDateFactory.getSetDateRule(this, ATD_TAB, new DataField());
 //		de(WDE).addRule(rule7, DATA_VERIFY);
 //		
-//		// *****************Producers*********************//
-//		Rule rule8 = KR_HTSetDateFactory.getSetDateRule(this, PROD_TAB, new DataField());
-//		de(WDE).addRule(rule8, DATA_VERIFY);
-//
+		// *****************Producers*********************//
+		Rule rule8 = KR_HTSetDateFactory.getSetDateRule(this, PROD_TAB, new DataField());
+		de(WDE).addRule(rule8, DATA_VERIFY);
+
 //
 //
 //		ds(CO).ds(TAR).de(COD).setAttachedFinder("TarTab", "TARTABcode", "National Tariff"); // National
@@ -193,7 +201,7 @@ public final class D_Product extends KDocument implements C_Product {
 		define_ReferenceDataRule();
 		define_AttachedFinderRule();
 		define_DocumentRules();
-		//define_MultiItemManagementRule() ;
+		define_MultiItemManagementRule() ;
 	}
 
 	public void define_ReferenceDataRule() {
@@ -203,7 +211,7 @@ public final class D_Product extends KDocument implements C_Product {
 	public void define_MandatoryDataRule() {
 		
       
-        ds(CTY).de(COD).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);        
+        //ds(CTY).de(COD).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);        
          
         // 1. Producer informations
         ds(CMP).ds(PROD).de(COD).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);          
@@ -216,13 +224,13 @@ public final class D_Product extends KDocument implements C_Product {
 
 	}
 
-	/*public void define_MultiItemManagementRule() {
+	public void define_MultiItemManagementRule() {
 
 		// Manage the item (ITM) sub-document
-		KR_NumberedSubDocumentManager rule = new KR_NumberedSubDocumentManager(ds(ITM), ACT_ITM_NEW, ACT_ITM_DEL);
+		KR_NumberedSubDocumentManager rule = new KR_NumberedSubDocumentManager((KNumberedSubDataSet) ds(ITM), ACT_ITM_NEW, ACT_ITM_DEL);
 		addRule(rule, ACT_ITM_NEW);
 		addRule(rule, ACT_ITM_DEL);
-	}*/
+	}
 
 	@Override
 	public TransactionEvent applyMiddleEvent(int id, DataSet data) {

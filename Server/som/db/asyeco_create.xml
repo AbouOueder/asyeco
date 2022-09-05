@@ -35,6 +35,8 @@
 		<column name= "CO_CRITERIA_TAR_CHG" type="BIT" />
 		<column name= "CO_CRITERIA_PVA_FLG" type="BIT" />	
 		<column name= "CO_CRITERIA_PVA_RAT" type="DOUBLE" />
+		<column name= "CO_CRITERIA_CEDEAO_FLG" type="BIT" />	
+		<column name= "CO_CRITERIA_UEMOA_FLG" type="BIT" />	
 		<column name="CO_PCK_NBR" type="INTEGER" />	
 		<column name="CO_PCK_COD" type="VARCHAR" size="5"/>
 		<column name="CO_PCK_DSC" type="VARCHAR" size="75"/>
@@ -142,6 +144,41 @@
 		<column name="SER_CUR" type="INTEGER" />
 		<primary_key>
 			<column name="InstanceId" />
+		</primary_key>
+	</table>
+	
+	<table name="CO_PRODUCT_TAB">
+		<column name="INSTANCE_ID" type="INTEGER" null="false"/>
+		<column name= "CMP_PROD_COD" type="VARCHAR" size="10"/>
+		<column name= "CMP_PROD_NAM" type="VARCHAR" size="225"/>
+		<column name= "CMP_PROD_CTY_COD" type="VARCHAR" size="75"/>
+		<column name= "CMP_PROD_CTY_DSC" type="VARCHAR" size="175"/>
+		<column name= "CMP_PROD_ADR" type="VARCHAR" size="100"/>	
+		<column name= "CMP_PROD_AD2" type="VARCHAR" size="100"/>	
+		<column name= "CMP_PROD_TEL" type="VARCHAR" size="17"/>
+		<column name= "CMP_PROD_EMAIL" type="VARCHAR" size="100"/>	
+		<column name= "CMP_PROD_WSITE" type="VARCHAR" size="100"/>
+		<column name="TOT_ITM" type="INTEGER" />
+		<primary_key>		
+			<column name="INSTANCE_ID"/>				
+		</primary_key>
+	</table>
+	
+	<table name="CO_PRODUCT_ITM_TAB">
+		<column name="INSTANCE_ID" type="INTEGER" null="false"/>
+		<column name="KEY_ITM_NBR" type="INTEGER" null="false"/>		
+		<column name="PRODUCT_NBR" type="VARCHAR" size="11"/>
+		<column name="TAR_COD" type="VARCHAR" size="10"/>
+		<column name="TAR_DSC" type="VARCHAR" size="800" />
+		<column name="GDS_DSC" type="VARCHAR" size="500" />
+		<column name="CRITERIA_OP_FLG" type="BIT" />
+		<column name="CRITERIA_SW_FLG" type="BIT" />
+		<column name="CRITERIA_TAR_CHG_FLG" type="BIT" />
+		<column name="CRITERIA_PVA_FLG" type="BIT" />
+		<column name="CRITERIA_PVA_RAT" type="DOUBLE" />		
+		<primary_key>		
+			<column name="INSTANCE_ID"/>		
+			<column name="KEY_ITM_NBR"/>			
 		</primary_key>
 	</table>
 	

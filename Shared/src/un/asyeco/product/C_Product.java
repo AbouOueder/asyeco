@@ -46,6 +46,10 @@ public interface C_Product {
 
 		// Visual middle events
 		public static final int ACT_ITM_NEW = EventConstants.INTERNAL_EVENTS_MAX + 2;
+		public static final int ACT_ITM_DEL = EventConstants.INTERNAL_EVENTS_MAX + 3;
+
+		public static final int MEN_ITM_NEW = EventConstants.INTERNAL_EVENTS_MAX + 6;
+		public static final int MEN_ITM_DEL = EventConstants.INTERNAL_EVENTS_MAX + 7;
 
 
 		// Status of the document
@@ -196,6 +200,10 @@ public interface C_Product {
 	    
 	    static public final String SUB = "SUB"; // Submit
 	    
+	    static public final String ITM = "ITM"; // Item
+	    
+	    static public final String TOT = "TOT"; // Total of products
+	    
 	    static public final String Warning_msg = "WMG";
 
 
@@ -232,6 +240,8 @@ public interface C_Product {
 		public static final String OP_DESIGN  = Operation.DESIGN_OPERATION_NAME;
 		public static final String OP_VIEW 	  = Operation.VIEW_OPERATION_NAME;
 		
+		public static final String ITM_DEL = "Delete Items";
+		public static final String ITM_NEW = "Add Items";
 
 		// Operation class name
 		public static final String OC_NEW = "New";
@@ -255,6 +265,7 @@ public interface C_Product {
 		public static final int OI_PRINT      = Operation.INTERNAL_OPERATIONS_MAX +   7;
 		public static final int OI_MODIFY_REJECT      = Operation.INTERNAL_OPERATIONS_MAX +   8;
 		public static final int OI_RECEIVE      = Operation.INTERNAL_OPERATIONS_MAX +   9;
+		
 		
 		
 		// Middle Event Identification Section
@@ -328,7 +339,11 @@ public interface C_Product {
 		public static final String PROD_NAM = "PRODUCER_NAM";
 		public static final String PROD_TEL = "PRODUCER_TEL";
 		public static final String PROD_ADR = "PRODUCER_ADR";
+		public static final String PROD_ADR2 = "PRODUCER_AD2";
 		public static final String PROD_EMAIL = "PRODUCER_EMAIL";
+		public static final String PROD_WSITE = "PRODUCER_WSITE";
+		public static final String PRODUCER_CTY = "PRODUCER_CTY";
+		
 		public static final String PROD_TAB_EVENT = "PROD_TAB_EVENT";
 
 

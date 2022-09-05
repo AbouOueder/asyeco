@@ -146,6 +146,15 @@
 		</access>
 	</binder>	
 	
+	<binder name="B_COProduct" status="Created">
+		<field name="server" value="un.asyeco.product.server.S_Product" />
+		<field name="dom" value="un.asyeco.product.D_Product" />
+		<field name="client" value="un.asyeco.product.client.DC_Product" />
+		<access bu="Customs CO">
+			<full />
+		</access>
+	</binder>	
+	
 
     <DL>
     	<folder name="ASYCUDA" icon="img/UN_VerySmallFlag.gif">
@@ -175,7 +184,21 @@
 								<operation name="Unlock" />								
 							</access>
 						</item>
+						<item name="Products" icon="">
+							<field name="binder" value="B_COProduct" />
+							<field name="skin" value="un.asyeco.product.client.VD_Product" />
+							<access bu="Customs CO">
+								<operation name="Design" />
+								<operation name="Create" />
+								<operation name="View" />
+								<operation name="Find" />
+								<operation name="Lock" />	
+								<operation name="Unlock" />								
+							</access>
+						</item>
+					
 				</folder>
+								
 			<!-- SYSTEM FACE LIFT - July 2010 -->
 			<folder name="System Configuration" icon="img/Icon_Folder.gif">
 				<access bu="Customs CO">

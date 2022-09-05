@@ -71,6 +71,8 @@ public class TC_eCO extends GCFTableConnector implements C_eCO{
 		add(ds(CO).ds(CRITERIA).ds(TAR).de(CHG), "CO_CRITERIA_TAR_CHG",  Types.BOOLEAN);	
 		add(ds(CO).ds(CRITERIA).ds(PVA).de(FLG), "CO_CRITERIA_PVA_FLG",  Types.BOOLEAN);	
 		add(ds(CO).ds(CRITERIA).ds(PVA).de(RAT), "CO_CRITERIA_PVA_RAT",  Types.DOUBLE);	
+		add(ds(CO).ds(CRITERIA).ds(CEDEAO).de(FLG), "CO_CRITERIA_CEDEAO_FLG",  Types.BOOLEAN);	
+		add(ds(CO).ds(CRITERIA).ds(UEMOA).de(FLG), "CO_CRITERIA_UEMOA_FLG",  Types.BOOLEAN);	
 		add(ds(CO).ds(PCK).de(NBR),               "CO_PCK_NBR", Types.INTEGER);	
 		add(ds(CO).ds(PCK).de(COD),               "CO_PCK_COD", Types.VARCHAR);	
 		add(ds(CO).ds(PCK).de(DSC),               "CO_PCK_DSC", Types.VARCHAR);	

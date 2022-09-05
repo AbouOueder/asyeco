@@ -100,6 +100,11 @@ public final class D_eCO extends KDocument implements C_eCO {
 		pva.add(FLG);
 		pva.add(RAT);
 		
+		criteria.seg(CEDEAO);
+		criteria.seg(UEMOA);
+		criteria.ds(CEDEAO).add(FLG);
+		criteria.ds(UEMOA).add(FLG);
+		
 		DataSet  pck = co.seg(PCK);
 		pck.add(NBR);
 		pck.add(COD);
@@ -356,8 +361,10 @@ public final class D_eCO extends KDocument implements C_eCO {
 		
 		ds(CO).ds(CRITERIA).de(OP).addRule(new R_CheckBoxGroup(), DATA_VERIFY);		
 		ds(CO).ds(CRITERIA).de(SW).addRule(new R_CheckBoxGroup(), DATA_VERIFY);
-		ds(CO).ds(CRITERIA).ds(TAR).addRule(new R_CheckBoxGroup(), DATA_VERIFY);
-		ds(CO).ds(CRITERIA).ds(PVA).addRule(new R_CheckBoxGroup(), DATA_VERIFY);
+		ds(CO).ds(CRITERIA).ds(TAR).de(CHG).addRule(new R_CheckBoxGroup(), DATA_VERIFY);
+		ds(CO).ds(CRITERIA).ds(PVA).de(FLG).addRule(new R_CheckBoxGroup(), DATA_VERIFY);
+		ds(CO).ds(CRITERIA).ds(CEDEAO).de(FLG).addRule(new R_CheckBoxGroup(), DATA_VERIFY);
+		ds(CO).ds(CRITERIA).ds(UEMOA).de(FLG).addRule(new R_CheckBoxGroup(), DATA_VERIFY);
 		ds(DPA).ds(CTL).ds(RSLT).de(CORR).addRule(new R_CheckBoxGroup(), DATA_VERIFY);
 		ds(DPA).ds(CTL).ds(RSLT).de(NOTCORRECT).addRule(new R_CheckBoxGroup(), DATA_VERIFY);
 		
