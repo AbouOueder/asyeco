@@ -236,7 +236,8 @@ public interface C_eCO {
 		// Operation class name
 		public static final String OC_NEW = "New";
 		public static final String OC_RETRIEVE = "Retrieve";
-		public static final String OC_VALIDATE = "Validate";
+		public static final String OC_AUTH_VALIDATE = "Competent Authority Validate";
+		public static final String OC_CUSTOM_VALIDATE = "Custom Validate";
 
 
 
@@ -255,6 +256,7 @@ public interface C_eCO {
 		public static final int OI_PRINT      = Operation.INTERNAL_OPERATIONS_MAX +   7;
 		public static final int OI_MODIFY_REJECT      = Operation.INTERNAL_OPERATIONS_MAX +   8;
 		public static final int OI_RECEIVE      = Operation.INTERNAL_OPERATIONS_MAX +   9;
+		public static final int DO_PRINT_PDF = INTERNAL_EVENTS_MAX + 20;
 		
 		
 		// Middle Event Identification Section

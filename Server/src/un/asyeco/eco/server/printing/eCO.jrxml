@@ -1,0 +1,1127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="eCO" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="P_ECOWAS_LABEL" class="java.lang.String"/>
+	<parameter name="P_REPUBLIC_LABEL" class="java.lang.String"/>
+	<parameter name="P_TITLE" class="java.lang.String"/>
+	<parameter name="P_PROD_LABEL" class="java.lang.String"/>
+	<parameter name="P_PROD_COD_LABEL" class="java.lang.String"/>
+	<parameter name="P_CONS_LABEL" class="java.lang.String"/>
+	<parameter name="P_CRITERIA_LABEL" class="java.lang.String"/>
+	<parameter name="P_CRIT_GDS_W_LABEL" class="java.lang.String"/>
+	<parameter name="P_CRIT_GDS_S_LABEL" class="java.lang.String"/>
+	<parameter name="P_CRIT_TAR_LABEL" class="java.lang.String"/>
+	<parameter name="P_CRIT_VA_LABEL" class="java.lang.String"/>
+	<parameter name="P_CRIT_ECOWAS_LABEL" class="java.lang.String"/>
+	<parameter name="P_CRIT_UEMOA_LABEL" class="java.lang.String"/>
+	<parameter name="P_QTY_LABEL" class="java.lang.String"/>
+	<parameter name="P_TSN_LABEL" class="java.lang.String"/>
+	<parameter name="P_GDS_NBR_LABEL" class="java.lang.String"/>
+	<parameter name="P_GRS_MASS_LABEL" class="java.lang.String"/>
+	<parameter name="P_INV_VAL_LABEL" class="java.lang.String"/>
+	<parameter name="P_EXP_LABEL" class="java.lang.String"/>
+	<parameter name="P_EXP_UNDSIGN_LABEL" class="java.lang.String"/>
+	<parameter name="P_EXP_OTH_LABEL" class="java.lang.String"/>
+	<parameter name="P_AUTH_LABEL" class="java.lang.String"/>
+	<parameter name="P_CUST_LABEL" class="java.lang.String"/>
+	<parameter name="P_EXP_DOC_LABEL" class="java.lang.String"/>
+	<parameter name="P_SAD_MODEL_LABEL" class="java.lang.String"/>
+	<parameter name="P_SAD_DAT_LABEL" class="java.lang.String"/>
+	<parameter name="P_REQ_VERIF_LABEL" class="java.lang.String"/>
+	<parameter name="P_REQ_TO_LABEL" class="java.lang.String"/>
+	<parameter name="P_REQ_ADR_LABEL" class="java.lang.String"/>
+	<parameter name="P_REQ_OTH_LABEL" class="java.lang.String"/>
+	<parameter name="P_RESP_VERIF_LABEL" class="java.lang.String"/>
+	<parameter name="P_RESP_VERIF1_LABEL" class="java.lang.String"/>
+	<parameter name="P_RESP_CRIT1_LABEL" class="java.lang.String"/>
+	<parameter name="P_RESP_CRIT2_LABEL" class="java.lang.String"/>
+	<parameter name="P_SIGN_STAMP_LABEL" class="java.lang.String"/>
+	<parameter name="P_PLACE_DATE_LABEL" class="java.lang.String"/>
+	<parameter name="P_CRIT_GDS_W" class="java.lang.String"/>
+	<parameter name="P_CRIT_GDS_S" class="java.lang.String"/>
+	<parameter name="P_CRIT_TAR" class="java.lang.String"/>
+	<parameter name="P_CRIT_VA" class="java.lang.String"/>
+	<parameter name="P_CRIT_ECOWAS" class="java.lang.String"/>
+	<parameter name="P_CRIT_UEMOA" class="java.lang.String"/>
+	<parameter name="P_NAM_LABEL" class="java.lang.String"/>
+	<parameter name="P_ADR_LABEL" class="java.lang.String"/>
+	<parameter name="P_ZIP_COD_LABEL" class="java.lang.String"/>
+	<parameter name="P_TEL_LABEL" class="java.lang.String"/>
+	<parameter name="P_EMAIL_LABEL" class="java.lang.String"/>
+	<parameter name="P_WSITE_LABEL" class="java.lang.String"/>
+	<parameter name="P_NBR_QTY_LABEL" class="java.lang.String"/>
+	<parameter name="P_KIND_LABEL" class="java.lang.String"/>
+	<parameter name="P_MRK_LABEL" class="java.lang.String"/>
+	<parameter name="P_TAR_COD_LABEL" class="java.lang.String"/>
+	<parameter name="P_TAR_DSC_LABEL" class="java.lang.String"/>
+	<parameter name="P_GRS_W_LABEL" class="java.lang.String"/>
+	<parameter name="P_UOM_COD_LABEL" class="java.lang.String"/>
+	<parameter name="P_AMT_LABEL" class="java.lang.String"/>
+	<parameter name="P_CUR_COD_LABEL" class="java.lang.String"/>
+	<parameter name="P_RATE_LABEL" class="java.lang.String"/>
+	<parameter name="P_EXAMINER_LABEL" class="java.lang.String"/>
+	<parameter name="P_OFFICE_LABEL" class="java.lang.String"/>
+	<parameter name="P_CRN_LABEL" class="java.lang.String"/>
+	<parameter name="P_CRIT_CTL_OK" class="java.lang.String"/>
+	<parameter name="P_CRIT_CTL_NOK" class="java.lang.String"/>
+	<field name="CO.CTY.COD" class="java.lang.String"/>
+	<field name="CO.CTY.DSC" class="java.lang.String"/>
+	<field name="CO.NBR" class="java.lang.String"/>
+	<field name="CO.REG.DAT" class="java.util.Date"/>
+	<field name="CO.REG.YER" class="java.lang.String"/>
+	<field name="CO.REG.SER" class="java.lang.String"/>
+	<field name="CO.EXPIRED.DAT" class="java.util.Date"/>
+	<field name="CO.SUB.NBR" class="java.lang.String"/>
+	<field name="CO.SUB.DAT" class="java.util.Date"/>
+	<field name="CO.SUB.YER" class="java.lang.String"/>
+	<field name="CO.CMP.PROD.COD" class="java.lang.String"/>
+	<field name="CO.CMP.PROD.NAM" class="java.lang.String"/>
+	<field name="CO.CMP.PROD.ADR" class="java.lang.String"/>
+	<field name="CO.CMP.PROD.TEL" class="java.lang.String"/>
+	<field name="CO.CMP.PROD.EMAIL" class="java.lang.String"/>
+	<field name="CO.PCK.NBR" class="java.lang.Integer"/>
+	<field name="CO.PCK.COD" class="java.lang.String"/>
+	<field name="CO.PCK.DSC" class="java.lang.String"/>
+	<field name="CO.PCK.MRK" class="java.lang.String"/>
+	<field name="CO.TAR.COD" class="java.lang.String"/>
+	<field name="CO.TAR.DSC" class="java.lang.String"/>
+	<field name="CO.PRODUCT.NBR" class="java.lang.String"/>
+	<field name="CO.WGT.GRS" class="java.math.BigDecimal"/>
+	<field name="CO.SUP.COD" class="java.lang.String"/>
+	<field name="CO.SUP.DSC" class="java.lang.String"/>
+	<field name="CO.INV.AMT" class="java.math.BigDecimal"/>
+	<field name="CO.CUR.COD" class="java.lang.String"/>
+	<field name="CO.CMP.EXP.NAM" class="java.lang.String"/>
+	<field name="CO.CMP.EXP.CTY" class="java.lang.String"/>
+	<field name="CO.CMP.EXP.SIGN.DAT" class="java.util.Date"/>
+	<field name="CO.AUTH.NAM" class="java.lang.String"/>
+	<field name="CO.AUTH.CTY" class="java.lang.String"/>
+	<field name="CO.AUTH.SIGN.DAT" class="java.util.Date"/>
+	<field name="CO.CUO.COD" class="java.lang.String"/>
+	<field name="CO.CUO.NAM" class="java.lang.String"/>
+	<field name="CO.DAU.MOD" class="java.lang.String"/>
+	<field name="CO.DAU.REG.NBR" class="java.lang.String"/>
+	<field name="CO.DAU.REG.DAT" class="java.util.Date"/>
+	<field name="DPA.EXA.COD" class="java.lang.String"/>
+	<field name="DPA.EXA.NAM" class="java.lang.String"/>
+	<field name="DPA.EXA.CTY" class="java.lang.String"/>
+	<field name="DPA.EXA.SIGN.DAT" class="java.util.Date"/>
+	<field name="DPA.CUO.COD" class="java.lang.String"/>
+	<field name="DPA.CUO.NAM" class="java.lang.String"/>
+	<field name="DPA.CUO.ADR" class="java.lang.String"/>
+	<field name="DEST.EXA.COD" class="java.lang.String"/>
+	<field name="DEST.EXA.NAM" class="java.lang.String"/>
+	<field name="DEST.EXA.CTY" class="java.lang.String"/>
+	<field name="DEST.EXA.SIGN.DAT" class="java.util.Date"/>
+	<field name="DPA.CTL.EXA.COD" class="java.lang.String"/>
+	<field name="DPA.CTL.EXA.NAM" class="java.lang.String"/>
+	<field name="DPA.CTL.EXA.CTY" class="java.lang.String"/>
+	<field name="DPA.CTL.EXA.SIGN.DAT" class="java.util.Date"/>
+	<field name="CO.CRITERIA.PVA.RAT" class="java.lang.Double"/>
+	<field name="CO.CRN" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="800" splitType="Stretch">
+			<rectangle>
+				<reportElement key="rectangle-19" x="0" y="0" width="595" height="800" forecolor="#ECFEF4" backcolor="#ECFEF4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-3" x="11" y="10" width="572" height="725" forecolor="#006633" backcolor="#ECFEF4"/>
+			</rectangle>
+			<line>
+				<reportElement key="line-3" x="297" y="10" width="1" height="30" forecolor="#006633"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-3" x="11" y="40" width="572" height="1" forecolor="#006633"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-3" x="11" y="69" width="572" height="1" forecolor="#006633"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-3" x="11" y="229" width="572" height="1" forecolor="#006633"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-3" x="298" y="69" width="1" height="306" forecolor="#006633"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-3" x="11" y="164" width="288" height="1" forecolor="#006633"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-3" x="11" y="268" width="572" height="1" forecolor="#006633"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-3" x="11" y="375" width="572" height="1" forecolor="#006633"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-3" x="122" y="230" width="1" height="145" forecolor="#006633"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-3" x="392" y="230" width="1" height="145" forecolor="#006633"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-3" x="489" y="230" width="1" height="145" forecolor="#006633"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-3" x="11" y="459" width="572" height="1" forecolor="#006633"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-3" x="11" y="600" width="572" height="1" forecolor="#006633"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-3" x="296" y="460" width="1" height="275" forecolor="#006633"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement key="rectangle-3" x="303" y="96" width="16" height="13" forecolor="#006633" backcolor="#ECFEF4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-3" x="303" y="113" width="16" height="13" forecolor="#006633" backcolor="#ECFEF4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-3" x="333" y="135" width="16" height="13" forecolor="#006633" backcolor="#ECFEF4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-3" x="333" y="152" width="16" height="13" forecolor="#006633" backcolor="#ECFEF4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-3" x="303" y="208" width="16" height="13" forecolor="#006633" backcolor="#ECFEF4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-3" x="303" y="185" width="16" height="13" forecolor="#006633" backcolor="#ECFEF4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-3" x="303" y="660" width="16" height="13" forecolor="#006633" backcolor="#ECFEF4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-3" x="303" y="683" width="16" height="13" forecolor="#006633" backcolor="#ECFEF4"/>
+			</rectangle>
+			<textField>
+				<reportElement x="19" y="15" width="155" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_ECOWAS_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="15" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_REPUBLIC_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="182" y="45" width="232" height="20"/>
+				<textElement>
+					<font size="15" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_TITLE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="19" y="76" width="145" height="33"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_PROD_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="174" y="76" width="62" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_PROD_COD_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="20" y="169" width="273" height="13"/>
+				<textElement>
+					<font fontName="SansSerif" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CONS_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="303" y="73" width="270" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CRITERIA_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="323" y="94" width="250" height="16"/>
+				<textElement>
+					<font fontName="SansSerif" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CRIT_GDS_W_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="323" y="113" width="250" height="13"/>
+				<textElement>
+					<font fontName="SansSerif" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CRIT_GDS_S_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="353" y="135" width="220" height="13"/>
+				<textElement>
+					<font fontName="SansSerif" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CRIT_TAR_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="353" y="151" width="220" height="14"/>
+				<textElement>
+					<font fontName="SansSerif" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CRIT_VA_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="323" y="184" width="250" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CRIT_ECOWAS_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="323" y="207" width="250" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CRIT_UEMOA_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="13" y="230" width="108" height="36"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_QTY_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="124" y="230" width="172" height="36"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_TSN_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="300" y="230" width="92" height="36"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_GDS_NBR_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="394" y="230" width="93" height="36"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_GRS_MASS_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="491" y="230" width="91" height="36"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_INV_VAL_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="19" y="377" width="284" height="16"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_EXP_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="19" y="393" width="74" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_EXP_UNDSIGN_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="19" y="413" width="554" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_EXP_OTH_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="19" y="464" width="266" height="47"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_AUTH_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="303" y="464" width="270" height="33"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CUST_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="303" y="513" width="100" height="15"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_EXP_DOC_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="303" y="527" width="89" height="13"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_SAD_MODEL_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="487" y="527" width="45" height="13"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_SAD_DAT_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="19" y="556" width="74" height="16"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_PLACE_DATE_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="221" y="556" width="72" height="16"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_SIGN_STAMP_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="303" y="572" width="65" height="15"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_PLACE_DATE_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="496" y="572" width="80" height="15"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_SIGN_STAMP_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="19" y="439" width="100" height="16"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_PLACE_DATE_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="403" y="439" width="170" height="16"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_SIGN_STAMP_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="19" y="601" width="155" height="15"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_REQ_VERIF_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="19" y="617" width="15" height="14"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_REQ_TO_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="19" y="632" width="274" height="13"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_REQ_ADR_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="19" y="655" width="274" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_REQ_OTH_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="19" y="699" width="74" height="15"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_PLACE_DATE_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="210" y="699" width="83" height="15"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_SIGN_STAMP_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="303" y="602" width="270" height="15"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_RESP_VERIF_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="303" y="620" width="270" height="12"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_RESP_VERIF1_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="323" y="660" width="250" height="11"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_RESP_CRIT1_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="323" y="683" width="250" height="13"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_RESP_CRIT2_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="303" y="714" width="50" height="14"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_PLACE_DATE_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="496" y="714" width="77" height="14"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_SIGN_STAMP_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="403" y="15" width="31" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.CTY.COD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="434" y="15" width="148" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.CTY.DSC}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="403" y="45" width="71" height="20"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.NBR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="236" y="76" width="57" height="20"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.CMP.PROD.COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="73" y="108" width="220" height="18"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.CMP.PROD.NAM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="73" y="127" width="220" height="13"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.CMP.PROD.ADR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="138" width="220" height="13"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.CMP.PROD.TEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="149" width="220" height="13"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.CMP.PROD.EMAIL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="181" width="220" height="12"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.CMP.PROD.ADR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="193" width="220" height="10"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.CMP.PROD.TEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="204" width="220" height="12"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.CMP.PROD.EMAIL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="270" width="56" height="12"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{CO.PCK.NBR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="282" width="23" height="12"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.PCK.COD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="282" width="56" height="12"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.PCK.DSC}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="14" y="310" width="105" height="65"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.PCK.MRK}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="270" width="75" height="13"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.TAR.COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="125" y="298" width="168" height="74"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.TAR.DSC}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="300" y="270" width="86" height="20"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.PRODUCT.NBR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="283" width="93" height="13"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{CO.WGT.GRS}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="452" y="297" width="33" height="13"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.SUP.COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="394" y="314" width="91" height="58"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.SUP.DSC}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="491" y="285" width="87" height="13"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{CO.INV.AMT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="296" y="97" width="31" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CRIT_GDS_W}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="114" width="24" height="13"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CRIT_GDS_S}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="136" width="16" height="13"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CRIT_TAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="153" width="16" height="13"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CRIT_VA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="184" width="16" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CRIT_ECOWAS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="209" width="16" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CRIT_UEMOA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="109" width="53" height="12"/>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_NAM_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="127" width="54" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_ADR_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="140" width="54" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_TEL_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="151" width="54" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_EMAIL_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="270" width="39" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_NBR_QTY_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="282" width="27" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_KIND_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="298" width="106" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_MRK_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="270" width="86" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_TAR_COD_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="283" width="168" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_TAR_DSC_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="269" width="95" height="14"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_GRS_W_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="297" width="56" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_UOM_COD_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="491" y="270" width="85" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_AMT_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="491" y="300" width="44" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CUR_COD_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="535" y="300" width="41" height="13"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.CUR.COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="93" y="393" width="480" height="20"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.CMP.EXP.NAM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="123" y="439" width="145" height="16"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.CMP.EXP.CTY}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="268" y="439" width="100" height="16"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{CO.CMP.EXP.SIGN.DAT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="512" width="43" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_NAM_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="64" y="512" width="221" height="15"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.AUTH.NAM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="93" y="558" width="89" height="16"/>
+				<textElement verticalAlignment="Top">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.AUTH.CTY}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="182" y="558" width="39" height="16"/>
+				<textElement verticalAlignment="Top">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{CO.REG.DAT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement x="373" y="169" width="61" height="12"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_RATE_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="438" y="169" width="32" height="12"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{CO.CRITERIA.PVA.RAT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="470" y="169" width="15" height="12"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[%]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="303" y="544" width="68" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_EXAMINER_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="418" y="544" width="155" height="12"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DPA.EXA.NAM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="371" y="572" width="79" height="15"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DPA.EXA.CTY}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="452" y="572" width="44" height="15"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{DPA.EXA.SIGN.DAT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="497" width="83" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_OFFICE_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="389" y="497" width="29" height="12"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.CUO.COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="394" y="528" width="44" height="12"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.DAU.MOD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="439" y="528" width="47" height="12"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.DAU.REG.NBR}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="535" y="527" width="38" height="13"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{CO.DAU.REG.DAT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="373" y="544" width="45" height="12"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DPA.EXA.COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="34" y="617" width="30" height="14"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DPA.CUO.COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="64" y="617" width="157" height="14"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DPA.CUO.NAM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="223" y="617" width="70" height="14"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DPA.CUO.ADR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="677" width="44" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_EXAMINER_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="66" y="677" width="53" height="13"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DEST.EXA.COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="373" y="642" width="200" height="13"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DPA.CTL.EXA.NAM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="93" y="699" width="71" height="15"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DEST.EXA.CTY}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="168" y="699" width="42" height="15"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{DEST.EXA.SIGN.DAT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="642" width="36" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_EXAMINER_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="341" y="642" width="30" height="13"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DPA.CTL.EXA.COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="125" y="677" width="168" height="13"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DEST.EXA.NAM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="418" y="497" width="155" height="12"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.CUO.NAM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="67" y="45" width="111" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CO.CRN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="45" width="44" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CRN_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="206" width="54" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_EMAIL_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="182" width="54" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_ADR_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="195" width="54" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_TEL_LABEL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="304" y="661" width="16" height="13"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CRIT_CTL_OK}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="305" y="684" width="16" height="13"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{P_CRIT_CTL_NOK}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="354" y="714" width="99" height="14"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DPA.CTL.EXA.CTY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="453" y="715" width="43" height="13"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{DPA.CTL.EXA.SIGN.DAT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+</jasperReport>

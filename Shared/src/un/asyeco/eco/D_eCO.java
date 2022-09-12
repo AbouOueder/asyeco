@@ -48,6 +48,7 @@ public final class D_eCO extends KDocument implements C_eCO {
 		
 		add(WDE);
 		//add(LNG);
+		add(PDF);
 
 		DataSet co = seg(CO);
 		co.add(NBR);

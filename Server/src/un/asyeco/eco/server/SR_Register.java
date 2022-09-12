@@ -93,7 +93,7 @@ public class SR_Register extends ServerRule implements C_eCO {
 
 			boolean isOK = amendSerial(doc, criteria, event, year );
 			if (!isOK) {
-				createSerial(doc, year, event);
+				createSerial(doc, year, serLet, event);
 				isOK = amendSerial(doc, criteria, event, year);
 				if (!isOK) {
 					setError(event.getData(), lng("Problem while generating the serial number"), event);
@@ -221,7 +221,7 @@ public class SR_Register extends ServerRule implements C_eCO {
 		return crn;
 	}
 
-	public synchronized boolean createSerial(DataSet doc, int year, GCFServerEvent event) {
+	public synchronized boolean createSerial(DataSet doc, int year, String serlet, GCFServerEvent event) {
 
 		DataSet[] serialDocs = null;
 		UserTransactionEnvironment environment = event.getUserTransactionEnvironment();
@@ -229,7 +229,7 @@ public class SR_Register extends ServerRule implements C_eCO {
 		DataSet criteria = new DataSet();
 		criteria.add(C_Reg.YER).tryToSetContent(year);
 		criteria.seg(C_Reg.CTY).add(C_Reg.COD).tryToSetContent(doc.ds(CO).ds(CTY).de(COD).getContent());
-		//criteria.seg(C_Reg.SIT).add(C_Reg.COD).tryToSetContent(doc.ds(IDE).ds(CUO).ds(DPA).de(COD).getContent());
+		criteria.add(C_Reg.CHR).tryToSetContent(serlet);
 
 		String serialBinderName = getServerBinder().getProperty("reg");
 		try {
@@ -248,6 +248,7 @@ public class SR_Register extends ServerRule implements C_eCO {
 		serial.ds(C_Reg.CTY).de(C_Reg.COD).tryToSetContent(doc.ds(CO).ds(CTY).de(COD).getContent());
 		serial.ds(C_Reg.CTY).de(C_Reg.DSC).tryToSetContent(doc.ds(CO).ds(CTY).de(DSC).getContent());
 		serial.de(C_Reg.YER).tryToSetContent(year);
+		serial.de(C_Reg.CHR).tryToSetContent(serlet);
 		String commitOperation = C_Reg.OP_CREATE;
 		boolean createCommit = or.commit(commitOperation);
 		if (!createCommit) {

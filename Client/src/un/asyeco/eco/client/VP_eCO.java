@@ -620,22 +620,101 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
     public void initRules() {
     	
     	D_eCO doc = (D_eCO) getDocument();
-    	
-        Co_Cty_Dsc.setEnabled(false);              
-        //Co_Nbr.setEnabled(false);                
-    	// 4. Quantity, nature, of goods and number of packages
-        Co_Pck_Dsc.setEnabled(false);      
-    	// 5. Tariff and statistical nomenclature  
-        //addRule(doc.ds(CO).ds(TAR).de(COD), new R_OpenTar(doc),  so.kernel.core.events.EventConstants.PREPARE_ATTACHED_FINDER_ID);
-        //Co_Tar_Dsc.setEnabled(false);                 
-    	// 6. Approval no of goods
-        //Co_Product_Nbr.setEnabled(false);          
-    	// 7. Gross weight or other measure
-        Co_Sup_Dsc.setEnabled(false);                
-    	// 11. Certification by customs 
-        Co_Cuo_Nam.setEnabled(false); 
-      	// 12. Request for verification
-        Dpa_Cuo_Nam.setEnabled(false);  
+    	                
+//        Co_Cty_Dsc.setEnabled(false);      
+//        Co_Nbr.setEnabled(false); 
+//        crn.setEnabled(false);
+//        
+//        // 1. Producer informations
+//        Co_Cmp_Prod_Cod.setEnabled(false);          
+//        Co_Cmp_Prod_Nam.setEnabled(false);   
+//        Co_Cmp_Prod_Adr.setEnabled(false);        
+//        Co_Cmp_Prod_Tel.setEnabled(false);        
+//        Co_Cmp_Prod_Email.setEnabled(false);
+//        
+//        // 2. Consignee
+//        Co_Cmp_Cons_Nam.setEnabled(false);        
+//        Co_Cmp_Cons_Adr.setEnabled(false);        
+//        Co_Cmp_Cons_Tel.setEnabled(false);       
+//        Co_Cmp_Cons_Email.setEnabled(false);
+//        
+//        
+//        // 3. Criteria determining origin (1)   
+//        Co_Criteria_Op_Flg.setEnabled(false);
+//        Co_Criteria_Sw_Flg.setEnabled(false);
+//        Co_Criteria_Tar_Chg_Flg.setEnabled(false);
+//        Co_Criteria_Pva_Flg.setEnabled(false);
+//              
+//        Co_Criteria_Pva_Rat.setEnabled(false);
+//        
+//        Co_Cedeao_Flg.setEnabled(false);
+//        Co_Uemoa_Flg.setEnabled(false);
+//
+//        
+//    	// 4. Quantity, nature, of goods and number of packages
+//        Co_Pck_Nbr.setEnabled(false);
+//        Co_Pck_Cod.setEnabled(false);
+//        Co_Pck_Dsc.setEnabled(false);
+//        Co_Pck_Mrk.setEnabled(false);
+//        
+//    	// 5. Tariff and statistical nomenclature       
+//        Co_Tar_Cod.setEnabled(false);
+//        Co_Tar_Dsc.setEnabled(false);
+//        
+//        
+//    	// 6. Approval no of goods
+//        Co_Product_Nbr.setEnabled(false);
+//        
+//        
+//    	// 7. Gross weight or other measure
+//
+//        Co_Wgt_Grs.setEnabled(false);
+//        Co_Sup_Cod.setEnabled(false);
+//        Co_Sup_Dsc.setEnabled(false);
+//        
+//    	// 8. Invoice value      
+//        Co_Inv_amt.setEnabled(false);
+//        Co_Cur_Cod.setEnabled(false);
+//        
+//    	// 9. Declaration by exporter      
+//        Co_Cmp_Exp_Nam.setEnabled(false);
+//        Co_Cmp_Exp_Cty.setEnabled(false);
+//        Co_Cmp_Exp_Sign_Dat.setEnabled(false);
+//                
+//        
+//    	// 10. Certification by the appropriate authority
+//        Co_Auth_Nam.setEnabled(false);
+//        Co_Auth_Cty.setEnabled(false);
+//        Co_Auth_Sign_Dat.setEnabled(false);
+//
+//    	// 11. Certification by customs 
+//        Co_Cuo_Cod.setEnabled(false);
+//        Co_Cuo_Nam.setEnabled(false);
+//        Co_Dau_Mod.setEnabled(false);
+//        Co_Dau_Reg_Nbr.setEnabled(false);
+//        Co_Dau_Reg_Dat.setEnabled(false);
+//        Dpa_Exa_Cod.setEnabled(false);
+//        Dpa_Exa_Nam.setEnabled(false);
+//        Dpa_Exa_Cty.setEnabled(false);
+//        Dpa_Exa_Sign_Dat.setEnabled(false);
+//             
+//    	// 12. Request for verification
+//        Dpa_Cuo_Cod.setEnabled(false);
+//        Dpa_Cuo_Nam.setEnabled(false);
+//        Dpa_Cuo_Adr.setEnabled(false);
+//        Dest_Exa_Cod.setEnabled(false);
+//        Dest_Exa_Nam.setEnabled(false);
+//        Dest_Exa_Cty.setEnabled(false);
+//        Dest_Exa_Sign_Dat.setEnabled(false);
+//        
+//    	// 13. Verification
+//        Dpa_Ctl_Exa_Cod.setEnabled(false);
+//        Dpa_Ctl_Exa_Nam.setEnabled(false);
+//        Dpa_Ctl_Exa_Cty.setEnabled(false);
+//        Dpa_Ctl_Exa_Sign_Dat.setEnabled(false);
+//        
+//        Dpa_Ctl_Correct_Flg.setEnabled(false);
+//        Dpa_Ctl_Not_Correct_Flg.setEnabled(false);
 
 
     }

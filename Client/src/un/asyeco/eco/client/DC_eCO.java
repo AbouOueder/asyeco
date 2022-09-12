@@ -16,6 +16,7 @@ import so.kernel.core.DataField;
 import so.kernel.core.DataSet;
 import so.kernel.core.Document;
 import so.kernel.core.KNumberedSubDataSet;
+import so.kernel.core.KernelEvent;
 import so.kernel.core.KernelEventConstants;
 import so.kernel.core.Rule;
 import so.kernel.core.client.rules.KR_Export;
@@ -23,11 +24,13 @@ import so.kernel.core.client.rules.KR_Import;
 import so.kernel.core.rules.KR_DataMandatory;
 
 import un.asyeco.eco.client.rules.R_EndOfTransaction;
+import un.asyeco.eco.client.rules.R_PrintEco;
 import un.asyeco.eco.C_eCO;
 import un.asyeco.eco.D_eCO;
 import un.kernel.core.rules.KR_HTConnectorFactory;
 import un.kernel.core.rules.KR_HTSetDateFactory;
 import un.asyeco.eco.client.rules.VR_Done;
+import un.asyeco.product.client.rules.R_New_Itm;
 
 
 /**
@@ -57,7 +60,7 @@ public class DC_eCO extends ClientDocument implements C_eCO {
  	 */ 	 
 	void initRules(D_eCO doc) {
 
-
+		doc.addRule(new R_PrintEco(doc), new KernelEvent(DO_PRINT_PDF));
 		//document.ds(EXP).de(COD).addRule(KR_DataMandatory.sharedInstance(), KernelEventConstants.DATA_VERIFY);		
 		
 	}//initRules

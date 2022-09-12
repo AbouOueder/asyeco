@@ -23,6 +23,20 @@
   <property file="${moduleinfo.properties}"/>
 
   <property name="classpath" value="${using.classpath}:${using.extclasspath}"/>
+	
+	
+  <!-- GVA <patch ID="Improvement #282 - Adjustment of build.xml and build.properties" version="4.2.2" type="Modification" date="Sep 4, 2013" author="Leonardo Flores"> -->
+  <path id="jasperPath">
+		<pathelement location="${src}"/>
+		<fileset dir="${so.server.install.dir}/modules/ext/jasper">
+			<include name="**/*.jar"/>
+		</fileset>
+		<pathelement path="${mod.un.asygate.ireport.jar}"/>
+		<pathelement path="${mod.un.asygate.barbecue.jar}"/>
+
+  </path>
+  <!-- </patch ID="#282 - Adjustment of build.xml and build.properties"> -->
+
 
   <target name="-print" unless="l.printed">
     <echo>      Project: ${ant.project.name}
@@ -74,6 +88,16 @@
            deprecation="${build.compiler.deprecation}"
            source="${source}"
            target="${target}"/>
+  	<!-- GVA <patch ID="Improvement #282 - Adjustment of build.xml and build.properties" version="4.2.2" type="Modification" date="Sep 4, 2013" author="Leonardo Flores"> -->
+	<taskdef name="jrc" classname="net.sf.jasperreports.ant.JRAntCompileTask"> 
+			<classpath refid="jasperPath"/>
+	</taskdef>
+	<jrc srcdir="${src}" destdir="${src}" tempdir="${src}" keepjava="false" xmlvalidation="true">
+		<classpath refid="jasperPath" />
+		<include name="**/*.jrxml" />
+	</jrc>
+  	<!-- </patch ID="#282 - Adjustment of build.xml and build.properties"> -->
+
   </target>
 
   <!--
@@ -164,6 +188,10 @@
     <delete>
       <fileset dir="${src}">
         <include name="**/*.class"/>
+      	<!-- GVA <patch ID="Improvement #282 - Adjustment of build.xml and build.properties" version="4.2.2" type="Modification" date="Sep 4, 2013" author="Leonardo Flores"> -->
+		<include name="**/*.jasper"/>
+      	<!-- </patch ID="#282 - Adjustment of build.xml and build.properties"> -->
+
       </fileset>
     </delete>
     <delete dir="${docs}"/>

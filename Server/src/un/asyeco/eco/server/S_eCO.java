@@ -42,6 +42,7 @@ import so.provider.usr.server.S_Usr;
 import so.util.DebugOutput;
 import un.adtcommons.server.rules.HistorizedServerRuleFactory;
 import un.asyeco.eco.C_eCO;
+import un.asyeco.eco.server.printing.SR_Print;
 
 
 
@@ -86,6 +87,7 @@ public class S_eCO extends GCFServerBinder implements C_eCO {
 		addServerRule(new SR_ChkTar(this), CHK_TAR);
 		addServerRule(new SR_Register(this), GET_NEXT_SERIAL_NUMBER);
 		addServerRule(new SR_Submit(this), GET_NEXT_SUBMIT_NUMBER);
+		addServerRule(new SR_Print(this), DO_PRINT_PDF);
 		
 		setDPP(createDPP());
 
@@ -131,6 +133,13 @@ public class S_eCO extends GCFServerBinder implements C_eCO {
 		dpp.add(ST_VALIDATED_CUSTOMS, OP_VIEW, ST_VALIDATED_CUSTOMS);
 		dpp.add(ST_CO_RECEIVED, OP_VIEW, ST_CO_RECEIVED);
 		
+		dpp.add(ST_CREATED, OP_PRINT, ST_CREATED);
+		dpp.add(ST_SUBMITTED, OP_PRINT, ST_SUBMITTED);
+		dpp.add(ST_ACCEPTED, OP_PRINT, ST_ACCEPTED);
+		dpp.add(ST_REJECTED, OP_PRINT, ST_REJECTED);
+		dpp.add(ST_VALIDATED_CUSTOMS, OP_PRINT, ST_VALIDATED_CUSTOMS);
+		dpp.add(ST_CO_RECEIVED, OP_PRINT, ST_CO_RECEIVED);
+		
 		return dpp;
 	}
 
@@ -167,9 +176,11 @@ public class S_eCO extends GCFServerBinder implements C_eCO {
 		// View
 		Operation op_View = OperationFactory.makeViewOperation(OI_VIEW, OP_VIEW,lng("View"),"img/View_Operation.gif");
 		//op_View.addVisibleEventID(DO_PRINT_BAG, "Print",lng("Print decision"),	"img/Btn_Print_Normal.gif");
+		op_View.addVisibleEventID(DO_PRINT_PDF/* WITH_PREVIEW */, "Print", lng("Print to PDF"), "img/Btn_PrintAlt_Normal.gif");
 		addReferenceModelEvents(op_View);
 		addMiddleEvents(op_View);
 		addExportVisualEvents(op_View);
+		op_View.addEventID(DO_PRINT_PDF);
 		ops.add(op_View);
 
 		
@@ -214,29 +225,48 @@ public class S_eCO extends GCFServerBinder implements C_eCO {
 		addMiddleEvents(op_submit);		
 		addReferenceModelEvents(op_submit);	
 		op_submit.addEventID(CHK_TAR);
+		op_submit.addEventID(DO_PRINT_PDF);
 		ops.add(op_submit);
+		
+		
+		// "Authority competent validation" operation class - main application menu
+		OperationClass oc_Auth_Validate = new OperationClass(OC_AUTH_VALIDATE, "img/Btn_OK_Normal.gif");
+		oc_Auth_Validate.setRequireLock(true);
+		oc_Auth_Validate.setKnownIED(true);
+		oc_Auth_Validate.setInLibrary(false);
+		oc_Auth_Validate.addEventID(EventConstants.UPDATE_REQUESTED);
+		oc_Auth_Validate.setStartEvent(EventConstants.UPDATE_REQUESTED);
+		oc_Auth_Validate.setDefault(1);
+		addReferenceModelEvents(oc_Auth_Validate);
+		addExportVisualEvents(oc_Auth_Validate);
+		addExportVisualEvents(oc_Auth_Validate);
+		addMiddleEvents(oc_Auth_Validate);
+		oc_Auth_Validate.addEventID(CHK_TAR);
+		oc_Auth_Validate.addEventID(DO_PRINT_PDF);
 			
 		// Accept
 		Operation op_Accept = OperationFactory.makeUpdateOperation(OI_ACCEPT, OP_ACCEPT,
 				 lng("Accept"), "img/Btn_OK_Normal.gif", new int[] { GET_NEXT_SERIAL_NUMBER }, null);	
-		op_Accept.setRequireLock(true);	
-		op_Accept.setKnownIED(true);
-		op_Accept.setInLibrary(false);
-		addMiddleEvents(op_Accept);		
-		addReferenceModelEvents(op_Accept);	
-		op_Accept.addEventID(CHK_TAR);
-		ops.add(op_Accept);			
+//		op_Accept.setRequireLock(true);	
+//		op_Accept.setKnownIED(true);
+//		op_Accept.setInLibrary(false);
+//		addMiddleEvents(op_Accept);		
+//		addReferenceModelEvents(op_Accept);	
+//		op_Accept.addEventID(CHK_TAR);
+			
 			
 		// Reject
 		Operation op_Reject = OperationFactory.makeUpdateOperation(OI_REJECT, OP_REJECT,
 				lng("Reject"), "img/Btn_Stop_Process_Normal.gif", null, null);
-		op_Accept.setRequireLock(true);	
-		op_Reject.setKnownIED(true);
-		op_Reject.setInLibrary(false);
-		addMiddleEvents(op_Reject);		
-		addReferenceModelEvents(op_Reject);		
-		op_Reject.addEventID(CHK_TAR);
-		ops.add(op_Reject);		
+//		op_Accept.setRequireLock(true);	
+//		op_Reject.setKnownIED(true);
+//		op_Reject.setInLibrary(false);
+//		addMiddleEvents(op_Reject);		
+//		addReferenceModelEvents(op_Reject);		
+//		op_Reject.addEventID(CHK_TAR);
+		oc_Auth_Validate.add(op_Accept);	
+		oc_Auth_Validate.add(op_Reject);	
+		ops.add(oc_Auth_Validate);
 		
 		// Modify Reject
 		Operation op_ModifyReject = OperationFactory.makeUpdateOperation(OI_MODIFY_REJECT, OP_MODIFY_REJECT,
@@ -247,6 +277,7 @@ public class S_eCO extends GCFServerBinder implements C_eCO {
 		addMiddleEvents(op_ModifyReject);		
 		addReferenceModelEvents(op_ModifyReject);	
 		op_ModifyReject.addEventID(CHK_TAR);
+		op_ModifyReject.addEventID(DO_PRINT_PDF);
 		ops.add(op_ModifyReject);	
 		
 		
@@ -281,7 +312,14 @@ public class S_eCO extends GCFServerBinder implements C_eCO {
 		addMiddleEvents(op_Receive);		
 		addReferenceModelEvents(op_Receive);			
 		ops.add(op_Receive);	
-			
+		
+		// "Print" direct operation
+		Operation op_Print = OperationFactory.makeStatusUpdateOperation(OI_PRINT, OP_PRINT, lng("Print"), "img/Btn_Print_Normal.gif");
+		op_Print.setAutoFinish(true);
+		addReferenceModelEvents(op_Print);
+		addMiddleEvents(op_Print);
+		ops.add(op_Print);
+
 			
 		return ops;
 		

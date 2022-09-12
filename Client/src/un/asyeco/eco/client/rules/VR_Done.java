@@ -67,6 +67,7 @@ public class VR_Done extends Rule implements C_eCO {
 			doc.ds(CO).ds(REG).de(SER).tryToSetContent(serialCharField.getContent());
 			doc.ds(CO).ds(REG).de(DAT).tryToSetContent(s_date);
 			doc.ds(CO).de(CRN).tryToSetContent(crnField.getContent());
+			doc.ds(CO).ds(AUTH).ds(SIGN).de(DAT).tryToSetContent(s_date);
 			int curYear = Calendar.getInstance().get(Calendar.YEAR);
 			// GVA <patch ID="Bug #699 T1 operations" type="modification" date="Oct 01, 2014" author="JD">
 			arg = lng("Registration is done") + " # " + serialCharField.getContent() +" " + serialNbrField.getContent() + " " + curYear + " " + doc.ds(CO).ds(CTY).de(COD).getContent() +
@@ -86,12 +87,13 @@ public class VR_Done extends Rule implements C_eCO {
 			doc.ds(CO).ds(SUB).de(NBR).tryToSetContent(serialNbrField.getContent());
 			doc.ds(CO).ds(SUB).de(SER).tryToSetContent(serialCharField.getContent());
 			doc.ds(CO).ds(SUB).de(DAT).tryToSetContent(s_date);
+			doc.ds(CO).ds(CMP).ds(EXP).ds(SIGN).de(DAT).tryToSetContent(s_date);
 			
 			//doc.ds(CO).de(CRN).tryToSetContent(crnField.getContent());
 			int curYear = Calendar.getInstance().get(Calendar.YEAR);
 			doc.ds(CO).ds(SUB).de(YER).tryToSetContent(curYear);
 			// GVA <patch ID="Bug #699 T1 operations" type="modification" date="Oct 01, 2014" author="JD">
-			arg = lng("Registration is done") + " # " + serialCharField.getContent() +" " + serialNbrField.getContent() + " " + curYear + " " + doc.ds(CO).ds(CTY).de(COD).getContent() +
+			arg = lng("Submit is done") + " # " + serialCharField.getContent() +" " + serialNbrField.getContent() + " " + curYear + " " + doc.ds(CO).ds(CTY).de(COD).getContent() +
 					  " " + doc.ds(CO).ds(SUB).de(DAT).getContent() ;
 			// GVA <patch ID="Bug #699 T1 operations"/>
 			message = lng(arg, new Object[] { serialNbrField.getContent() });
