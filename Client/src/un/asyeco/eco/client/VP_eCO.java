@@ -265,7 +265,7 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
     	
         // Header of certifacte
     	add(5, 69, 160, 20, lng("ECOWAS/UEMOA"));        
-        add(470, 69, 90, 20, lng("REPUBLIC OF"));        
+        add(470, 69, 120, 20, lng("REPUBLIC OF"));        
         add(300, 101, 300, 20, lng("CERTFICATE OF ORIGIN N°"));  
         
         // 1. Producer (registration number, name, address, ...)
@@ -287,7 +287,7 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
         
        	// 3. Criteria determining origin (1)       
         add(470, 132, 300, 20, lng("3. Criteria determining origin"));        
-        add(490, 162, 300, 20, lng("a. Goods wholly produced in the Community"));        
+        add(490, 162, 400, 20, lng("a. Goods wholly produced in the Community"));        
         add(490, 192, 300, 20, lng("b. Goods sufficiently processed or worked"));        
         add(510, 222, 400, 20, lng("b.1 According to the criterion of changing of tariff position"));            
         add(510, 252, 300, 20, lng("b.2 According to the criterion of value added"));     
@@ -338,8 +338,8 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
         
         
     	// 10. Certification by the appropriate authority
-        add(5, 784, 500, 20, lng("10. Certification by the appropriate Authority declared criterion"));  
-        add(5, 804, 200, 20, lng("     of origin certified correct.")); 
+        add(5, 784, 500, 20, lng("10. Certification by the appropriate Authority"));  
+        add(5, 804, 500, 20, lng("  Declared criterion of origin certified correct.")); 
         add(5, 834, 150, 20, lng("Name")); 
         add(5, 864, 150, 20, lng("Place"));
         add(5, 894, 80, 20, lng("Date"));
@@ -375,8 +375,8 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
         // Editable Visual controls
         
         // Header
-        add(560, 69, 40, 20, Co_Cty_Cod,  lng("Country code of Certificate of origin"));
-        add(605, 69, 300, 20, Co_Cty_Dsc,  lng("Country name of Certificate of origin"));
+        add(590, 69, 40, 20, Co_Cty_Cod,  lng("Country code of Certificate of origin"));
+        add(635, 69, 290, 20, Co_Cty_Dsc,  lng("Country name of Certificate of origin"));
         
         add(510, 101, 150, 20, Co_Nbr, lng("Number of Certificate of origin")); 
         add(665, 101, 150, 20, crn, lng("Certificate Reference Number")); 
@@ -621,25 +621,25 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
     	
     	D_eCO doc = (D_eCO) getDocument();
     	                
-//        Co_Cty_Dsc.setEnabled(false);      
-//        Co_Nbr.setEnabled(false); 
-//        crn.setEnabled(false);
-//        
-//        // 1. Producer informations
-//        Co_Cmp_Prod_Cod.setEnabled(false);          
-//        Co_Cmp_Prod_Nam.setEnabled(false);   
-//        Co_Cmp_Prod_Adr.setEnabled(false);        
-//        Co_Cmp_Prod_Tel.setEnabled(false);        
-//        Co_Cmp_Prod_Email.setEnabled(false);
-//        
-//        // 2. Consignee
+        Co_Cty_Dsc.setEnabled(false);      
+        Co_Nbr.setEnabled(false); 
+        crn.setEnabled(false);
+        
+        // 1. Producer informations
+        //Co_Cmp_Prod_Cod.setEnabled(false);          
+        Co_Cmp_Prod_Nam.setEnabled(false);   
+        Co_Cmp_Prod_Adr.setEnabled(false);        
+        Co_Cmp_Prod_Tel.setEnabled(false);        
+        Co_Cmp_Prod_Email.setEnabled(false);
+        
+        // 2. Consignee
 //        Co_Cmp_Cons_Nam.setEnabled(false);        
 //        Co_Cmp_Cons_Adr.setEnabled(false);        
 //        Co_Cmp_Cons_Tel.setEnabled(false);       
 //        Co_Cmp_Cons_Email.setEnabled(false);
-//        
-//        
-//        // 3. Criteria determining origin (1)   
+        
+        
+        // 3. Criteria determining origin (1)   
 //        Co_Criteria_Op_Flg.setEnabled(false);
 //        Co_Criteria_Sw_Flg.setEnabled(false);
 //        Co_Criteria_Tar_Chg_Flg.setEnabled(false);
@@ -649,30 +649,30 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
 //        
 //        Co_Cedeao_Flg.setEnabled(false);
 //        Co_Uemoa_Flg.setEnabled(false);
-//
-//        
-//    	// 4. Quantity, nature, of goods and number of packages
+
+        
+    	// 4. Quantity, nature, of goods and number of packages
 //        Co_Pck_Nbr.setEnabled(false);
 //        Co_Pck_Cod.setEnabled(false);
-//        Co_Pck_Dsc.setEnabled(false);
+        Co_Pck_Dsc.setEnabled(false);
 //        Co_Pck_Mrk.setEnabled(false);
-//        
-//    	// 5. Tariff and statistical nomenclature       
+        
+    	// 5. Tariff and statistical nomenclature       
 //        Co_Tar_Cod.setEnabled(false);
-//        Co_Tar_Dsc.setEnabled(false);
-//        
-//        
-//    	// 6. Approval no of goods
-//        Co_Product_Nbr.setEnabled(false);
-//        
-//        
-//    	// 7. Gross weight or other measure
-//
+        Co_Tar_Dsc.setEnabled(false);
+        
+        
+    	// 6. Approval no of goods
+        //Co_Product_Nbr.setEnabled(false);
+        
+        
+    	// 7. Gross weight or other measure
+
 //        Co_Wgt_Grs.setEnabled(false);
 //        Co_Sup_Cod.setEnabled(false);
-//        Co_Sup_Dsc.setEnabled(false);
-//        
-//    	// 8. Invoice value      
+        Co_Sup_Dsc.setEnabled(false);
+        
+    	// 8. Invoice value      
 //        Co_Inv_amt.setEnabled(false);
 //        Co_Cur_Cod.setEnabled(false);
 //        
@@ -689,7 +689,7 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
 //
 //    	// 11. Certification by customs 
 //        Co_Cuo_Cod.setEnabled(false);
-//        Co_Cuo_Nam.setEnabled(false);
+////        Co_Cuo_Nam.setEnabled(false);
 //        Co_Dau_Mod.setEnabled(false);
 //        Co_Dau_Reg_Nbr.setEnabled(false);
 //        Co_Dau_Reg_Dat.setEnabled(false);
@@ -715,7 +715,7 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
 //        
 //        Dpa_Ctl_Correct_Flg.setEnabled(false);
 //        Dpa_Ctl_Not_Correct_Flg.setEnabled(false);
-
+//
 
     }
 

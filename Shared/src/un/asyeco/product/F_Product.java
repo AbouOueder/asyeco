@@ -64,7 +64,7 @@ public class F_Product extends FinderInfo implements C_Product{
 //		addFinder_SearchFld(ds(CO).de(CRN), lng("CRN"), Global.STRING_TYPE, "AN17");
 		addFinder_SearchFld(ds(CMP).ds(PROD).de(COD), lng("Producer code"), Global.STRING_TYPE, "AN17");
 		addFinder_SearchFld(ds(CMP).ds(PROD).de(NAM), lng("Producer name"), Global.STRING_TYPE, "AN35");
-		addFinder_SearchFld(ds(CMP).ds(PROD).ds(CTY).de(COD), lng("Country code origin "), Global.STRING_TYPE, "AN3");
+		addFinder_SearchFld(ds(CMP).ds(PROD).ds(CTY).de(COD), lng("Origin Country code "), Global.STRING_TYPE, "AN3");
 		//addFinder_SearchFld(ds(CO).ds(PRODUCT).de(NBR), lng("Product number"), Global.STRING_TYPE, "N10");
 		//addFinder_SearchFld(ds(ISS).de(DAT), lng("Issue date"), Global.DATE_TYPE, "dd/MM/yyyy");
 		
@@ -86,7 +86,7 @@ public class F_Product extends FinderInfo implements C_Product{
 		addFinder_ViewFld(ds(CMP).ds(PROD).de(COD), lng("Producer code"), "AN17");
 		addFinder_ViewFld(ds(CMP).ds(PROD).de(NAM), lng("Producer name"), "AN75");
 		//addFinder_ViewFld(ds(ISS).de(DAT), lng("Issue date"), "dd/MM/yyyy");
-		addFinder_ViewFld(ds(CMP).ds(PROD).ds(CTY).de(COD), lng("Country code origin "), "AN3");
+		addFinder_ViewFld(ds(CMP).ds(PROD).ds(CTY).de(COD), lng("Origin Country code"), "AN3");
 
 		setResultPanelProperties();		
 	}

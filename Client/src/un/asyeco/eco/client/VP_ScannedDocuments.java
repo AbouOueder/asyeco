@@ -91,7 +91,7 @@ public class VP_ScannedDocuments extends AWVisualTemplate implements C_eCO {
 
 		// Labels and title stripes
 		addTitleStripeAndFlag(0, 0, 925, 25, lng("Attached Scanned Documents Page"));
-		addTitledBorder(10, 35, 915, 170, lng("Certificate of origin Doc Informations"));
+		addTitledBorder(10, 35, 915, 170, lng("Certificate of origin Doc. Informations"));
 		addTitledBorder(10,240,915,520,lng("List of Documents"));
 		
 		add(  20,  60, 150,  20, lng("Country of Certificate"));

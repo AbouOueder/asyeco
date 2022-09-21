@@ -100,7 +100,7 @@ public class SR_Print extends KSR_DocumentRead {
 		print.addStringToParameters("P_WSITE_LABEL", lng("Web site"));
 		
 		
-		print.addStringToParameters("P_CONS_LABEL", lng("2. Consignee (Name or trade name and address"));
+		print.addStringToParameters("P_CONS_LABEL", lng("2. Consignee (Name or trade name and address)"));
 		print.addStringToParameters("P_CRITERIA_LABEL", lng("3. Criteria determining origin (1)"));
 		print.addStringToParameters("P_CRIT_GDS_W_LABEL", lng("Goods wholly produced in the Community"));
 		print.addStringToParameters("P_CRIT_GDS_S_LABEL", lng("Goods sufficiently processed or worked"));

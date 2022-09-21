@@ -458,6 +458,7 @@ public final class D_eCO extends KDocument implements C_eCO {
 	}
 
 	public void define_AttachedFinderRule() {
+		ds(CO).ds(TAR).de(COD).setAttachedFinder("Product_Finder", "PRODUCT_CODE", lng("Products"));
 
 	//	ds(BAG).ds(CMP).de(COD).setAttachedFinder("AsyRefUNCMPTABView",	"cmpcode", lng("Company")); // Company
 
