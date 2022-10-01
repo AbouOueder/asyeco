@@ -10,6 +10,7 @@ package un.asyeco.eco.client;
 
 
 import static so.kernel.core.KernelEventConstants.DATA_VERIFY;
+import static so.kernel.core.KernelEventConstants.DATA_CHANGED;
 import so.kernel.client.ClientDocument;
 import so.kernel.core.Data;
 import so.kernel.core.DataField;
@@ -24,6 +25,8 @@ import so.kernel.core.client.rules.KR_Import;
 import so.kernel.core.rules.KR_DataMandatory;
 
 import un.asyeco.eco.client.rules.R_EndOfTransaction;
+import un.asyeco.eco.client.rules.R_GetProduct;
+import un.asyeco.eco.client.rules.R_GetProductDetail;
 import un.asyeco.eco.client.rules.R_PrintEco;
 import un.asyeco.eco.C_eCO;
 import un.asyeco.eco.D_eCO;
@@ -61,6 +64,7 @@ public class DC_eCO extends ClientDocument implements C_eCO {
 	void initRules(D_eCO doc) {
 
 		doc.addRule(new R_PrintEco(doc), new KernelEvent(DO_PRINT_PDF));
+		//doc.ds(CO).ds(PRODUCT).de(NBR).addRule(new R_GetProductDetail(doc), DATA_VERIFY);
 		//document.ds(EXP).de(COD).addRule(KR_DataMandatory.sharedInstance(), KernelEventConstants.DATA_VERIFY);		
 		
 	}//initRules
@@ -129,7 +133,9 @@ public class DC_eCO extends ClientDocument implements C_eCO {
 		define_ReferenceDataRule(doc, vd );	
 		// Display end of transaction information dialog
 		doc.addRule(new VR_Done(doc, vd), KernelEventConstants.OPERATION_DONE);
-
+		doc.ds(CO).ds(CMP).ds(PROD).de(COD).addRule(new R_GetProduct(doc, vd), DATA_VERIFY);
+		doc.ds(CO).ds(TMPPRODUCT).de(NBR).addRule(new R_GetProductDetail(doc, vd), DATA_VERIFY);
+		//doc.ds(CO).ds(PRODUCT).de(NBR).addRule(new R_GetProductDetail(doc, vd), DATA_CHANGED);
 		//doc.addRule(new R_EndOfTransaction(vd), KernelEventConstants.OPERATION_DONE);
 	
 	}//initRules

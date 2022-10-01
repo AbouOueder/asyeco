@@ -123,9 +123,17 @@ public final class DS_ProductItm extends KNumberedSubDocument implements C_Produ
 		
 	}
 
-	public void define_DocumentRules() {
-		//ds(TAR).de(COD).addRule(R_ChkTar.sharedInstance(), DATA_CHANGED);
-		//ds(TAR).de(COD).addRule(R_ChkTar.sharedInstance(), DATA_VERIFY);
+	public void define_DocumentRules(KDocumentInterface prod) {
+		D_Product doc = (D_Product) prod;
+		ds(TAR).de(COD).addRule(R_ChkTar.sharedInstance(), DATA_CHANGED);
+		ds(TAR).de(COD).addRule(R_ChkTar.sharedInstance(), DATA_VERIFY);
+		
+		define_MandatoryDataRule();
+		define_ReferenceDataRule();
+		define_AttachedFinderRule(doc);
+		//define_DocumentRules(doc);
+		define_ClientBusinessRule();
+
 
 	}
 	
@@ -199,7 +207,7 @@ public final class DS_ProductItm extends KNumberedSubDocument implements C_Produ
 //		ds(TAR).de(COD).addRule(new R_FillCommCode(ds(CO).ds(TAR)), DATA_CHANGED);
 //		
 //
-//		// Business logic groups
+		// Business logic groups
 //		define_MandatoryDataRule();
 //		define_ReferenceDataRule();
 //		define_AttachedFinderRule();
@@ -226,9 +234,15 @@ public final class DS_ProductItm extends KNumberedSubDocument implements C_Produ
         //ds(SUP).de(COD).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);        
 	}
 
-	public void define_AttachedFinderRule() {
+	public void define_AttachedFinderRule(D_Product doc) {
 
 	//	ds(BAG).ds(CMP).de(COD).setAttachedFinder("AsyRefUNCMPTABView",	"cmpcode", lng("Company")); // Company
+		ds(TAR).de(COD).setAttachedFinder("TarTab", "TARTABcode", "National Tariff"); // National
+		// tariff
+		ds(TAR).de(COD).getAttachedFinder().addRule(new R_Init_Finder_Historized(doc.de(WDE)));
+		ds(TAR).de(COD).getAttachedFinder().addRule(new R_FillHscTmp(ds(TAR)));
+		ds(TAR).de(COD).addRule(new R_FillCommCode(ds(TAR)), DATA_CHANGED);
+
 
 	}
 

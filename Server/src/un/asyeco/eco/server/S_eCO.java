@@ -88,6 +88,8 @@ public class S_eCO extends GCFServerBinder implements C_eCO {
 		addServerRule(new SR_Register(this), GET_NEXT_SERIAL_NUMBER);
 		addServerRule(new SR_Submit(this), GET_NEXT_SUBMIT_NUMBER);
 		addServerRule(new SR_Print(this), DO_PRINT_PDF);
+		addServerRule(new SR_GetProd(this), GET_PRODUCT);
+		addServerRule(new SR_GetProductDetail(this), GET_PRODUCTDETAIL);
 		
 		setDPP(createDPP());
 
@@ -171,6 +173,8 @@ public class S_eCO extends GCFServerBinder implements C_eCO {
 		addReferenceModelEvents(oc_Design);		
 		addMiddleEvents(oc_Design);
 		oc_Design.addEventID(CHK_TAR);
+		oc_Design.addEventID(GET_PRODUCT);
+		oc_Design.addEventID(GET_PRODUCTDETAIL);
 		ops.add(oc_Design);
 
 		// View
@@ -206,6 +210,8 @@ public class S_eCO extends GCFServerBinder implements C_eCO {
 		addReferenceModelEvents(oc_New);
 		addMiddleEvents(oc_New);
 		oc_New.addEventID(CHK_TAR);
+		oc_New.addEventID(GET_PRODUCT);
+		oc_New.addEventID(GET_PRODUCTDETAIL);
 
 		// Register
 		int oe_create_Before_Events[] = { };
@@ -225,6 +231,8 @@ public class S_eCO extends GCFServerBinder implements C_eCO {
 		addMiddleEvents(op_submit);		
 		addReferenceModelEvents(op_submit);	
 		op_submit.addEventID(CHK_TAR);
+		op_submit.addEventID(GET_PRODUCT);
+		op_submit.addEventID(GET_PRODUCTDETAIL);
 		op_submit.addEventID(DO_PRINT_PDF);
 		ops.add(op_submit);
 		
@@ -242,6 +250,8 @@ public class S_eCO extends GCFServerBinder implements C_eCO {
 		addExportVisualEvents(oc_Auth_Validate);
 		addMiddleEvents(oc_Auth_Validate);
 		oc_Auth_Validate.addEventID(CHK_TAR);
+		oc_Auth_Validate.addEventID(GET_PRODUCT);
+		oc_Auth_Validate.addEventID(GET_PRODUCTDETAIL);
 		oc_Auth_Validate.addEventID(DO_PRINT_PDF);
 			
 		// Accept
@@ -277,6 +287,8 @@ public class S_eCO extends GCFServerBinder implements C_eCO {
 		addMiddleEvents(op_ModifyReject);		
 		addReferenceModelEvents(op_ModifyReject);	
 		op_ModifyReject.addEventID(CHK_TAR);
+		op_ModifyReject.addEventID(GET_PRODUCT);
+		op_ModifyReject.addEventID(GET_PRODUCTDETAIL);
 		op_ModifyReject.addEventID(DO_PRINT_PDF);
 		ops.add(op_ModifyReject);	
 		
@@ -290,6 +302,8 @@ public class S_eCO extends GCFServerBinder implements C_eCO {
 		addMiddleEvents(op_Validate);		
 		addReferenceModelEvents(op_Validate);	
 		op_Validate.addEventID(CHK_TAR);
+		op_Validate.addEventID(GET_PRODUCT);
+		op_Validate.addEventID(GET_PRODUCTDETAIL);
 		ops.add(op_Validate);	
 		
 		// Send CO

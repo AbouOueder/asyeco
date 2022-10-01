@@ -42,6 +42,8 @@ public interface C_eCO {
 	public static final Color sentColor = new Color(186, 200, 226);
 	public static final Color cancelledColor = new Color(159, 178, 215);
 	public static final Color selectedColor = new Color(57, 74, 105);
+	
+	String[] choice = {  };
 
 
 		// Visual middle events
@@ -197,6 +199,8 @@ public interface C_eCO {
 	    static public final String UEMOA = "UEMOA"; // UEMOA
 	    
 	    static public final String Warning_msg = "WMG";
+	    
+	    static public final String TMPPRODUCT = "TMPPRODUCT";
 
 
 		
@@ -283,6 +287,10 @@ public interface C_eCO {
 		public static final int GET_NEXT_SUBMIT_NUMBER = INTERNAL_EVENTS_MAX + 2015;
 		
 		public static final int NOTIFY_CLIENT_PRINT_MANAGER = INTERNAL_EVENTS_MAX + 10070;
+		
+		public static final int GET_PRODUCT = INTERNAL_EVENTS_MAX + 110;
+		
+		public static final int GET_PRODUCTDETAIL = INTERNAL_EVENTS_MAX + 111;
 		
 		
 		// Regulation - National Reference Database Section

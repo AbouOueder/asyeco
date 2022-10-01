@@ -15,14 +15,18 @@ import static un.asyeco.product.C_Product.*;
 public class SR_GetProduct extends KSR_DocumentRead  {
 
 	public SR_GetProduct(S_eCO binder) {
-		super(binder, KSR_DocumentRead.ERROR | KSR_DocumentRead.DOCUMENT_FOUND | KSR_DocumentRead.NON_KEYS_DATA, "Problem opening Product Doc",
-				"Product_Finder", 
+	//	super(binder, KSR_DocumentRead.ERROR | KSR_DocumentRead.DOCUMENT_FOUND | KSR_DocumentRead.NON_KEYS_DATA, "Problem opening Product Doc",
+	//			"Product_Finder", 
+	//			new Object[] { C_Product.ST_ACCEPTED, C_Product.ST_CREATED });
+		
+		super(binder, KSR_DocumentRead.ERROR | KSR_DocumentRead.DOCUMENT_FOUND | KSR_DocumentRead.NON_KEYS_DATA, "", 
 				new Object[] { C_Product.ST_ACCEPTED, C_Product.ST_CREATED });
+
 	}
 
 	protected void prepareBeforeRead(DataSet source, DataSet key) {
-		key.add(COD); 
-		key.de(COD).copyFrom(source.ds(PRODUCT).de(COD));
+		key.seg(CMP).seg(PROD).add(COD); 
+		key.ds(CMP).ds(PROD).de(COD).copyFrom(source.ds(CMP).ds(PROD).de(COD));
 	}
 
 	protected DataSet prepareAfterRead(DataSet source) {     

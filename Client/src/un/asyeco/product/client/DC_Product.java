@@ -10,6 +10,7 @@ package un.asyeco.product.client;
 
 
 import static so.kernel.core.KernelEventConstants.DATA_VERIFY;
+import static so.kernel.core.KernelEventConstants.*;
 import so.kernel.client.ClientDocument;
 import so.kernel.core.Data;
 import so.kernel.core.DataField;
@@ -29,11 +30,13 @@ import un.kernel.core.rules.KR_HTConnectorFactory;
 import un.kernel.core.rules.KR_HTSetDateFactory;
 import un.asyeco.product.C_Product;
 import un.asyeco.product.D_Product;
+import un.asyeco.product.client.rules.R_Chk_Nber_Items;
 import un.asyeco.product.client.rules.R_Delete_Itm;
 import un.asyeco.product.client.rules.R_EndOfTransaction;
 import un.asyeco.product.client.rules.R_ManageItmVisualEvents;
 import un.asyeco.product.client.rules.R_New_Itm;
 import un.asyeco.product.client.rules.VR_Done;
+
 
 
 /**
@@ -62,7 +65,7 @@ public class DC_Product extends ClientDocument implements C_Product {
  	 * @generated
  	 */ 	 
 	void initRules(D_Product doc) {
-
+		doc.addRule(new R_Chk_Nber_Items(), DOCUMENT_VERIFY);
 
 		//document.ds(EXP).de(COD).addRule(KR_DataMandatory.sharedInstance(), KernelEventConstants.DATA_VERIFY);		
 		

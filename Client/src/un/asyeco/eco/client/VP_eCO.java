@@ -14,6 +14,7 @@ import so.kernel.client.elf.ElfField;
 import so.kernel.core.DataSet;
 import so.kernel.core.KernelEventConstants;
 import so.kernel.core.rules.KR_DataMandatory;
+import so.swing.KComboBox;
 import so.swing.KPanel;
 import un.adtcommons.client.visual.AWVisualTemplate;
 import un.asyeco.eco.C_eCO;
@@ -116,7 +117,8 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
 	transient private ElfField Co_Gds_Dsc = elfFieldPool.getElfField();
 	
 	//CO product number
-	transient private ElfField Co_Product_Nbr = elfFieldPool.getElfField();
+	transient private ElfField Co_Product_Nbr =  elfFieldPool.getElfField();
+	transient private KComboBox Co_TmpProduct_Nbr =  new KComboBox(); //elfFieldPool.getElfField();
 	
 	//CO weight gross mass
 	transient private ElfField Co_Wgt_Grs = elfFieldPool.getElfField();
@@ -290,7 +292,7 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
         add(490, 162, 400, 20, lng("a. Goods wholly produced in the Community"));        
         add(490, 192, 300, 20, lng("b. Goods sufficiently processed or worked"));        
         add(510, 222, 400, 20, lng("b.1 According to the criterion of changing of tariff position"));            
-        add(510, 252, 300, 20, lng("b.2 According to the criterion of value added"));     
+        add(510, 252, 400, 20, lng("b.2 According to the criterion of value added"));     
         add(510, 282, 100, 20, lng("Rate"));  
         add(720, 282, 40, 20, lng("%"));
         add(490, 332, 300, 20, lng("ECOWAS scheme (in compliance with the"));
@@ -421,7 +423,8 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
         
         
     	// 6. Approval no of goods
-        add(470, 527, 115, 20, Co_Product_Nbr, lng("Number of approval goods"));         
+        add(470, 527, 115, 20, Co_Product_Nbr, lng("Number of approval goods")); 
+        add(470, 557, 115, 20, Co_TmpProduct_Nbr, lng("Number of approval goods"));
         
         
     	// 7. Gross weight or other measure
@@ -549,7 +552,8 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
         
         
     	// 6. Approval no of goods
-        addFacetText(Co_Product_Nbr, doc.ds(CO).ds(PRODUCT).de(NBR), "N11");         
+        addFacetText(Co_Product_Nbr, doc.ds(CO).ds(PRODUCT).de(NBR), "N11");  
+        addFacetChoice(Co_TmpProduct_Nbr, doc.ds(CO).ds(TMPPRODUCT).de(NBR), choice);
         
         
     	// 7. Gross weight or other measure
@@ -716,9 +720,21 @@ public class VP_eCO extends AWVisualTemplate implements C_eCO {
 //        Dpa_Ctl_Correct_Flg.setEnabled(false);
 //        Dpa_Ctl_Not_Correct_Flg.setEnabled(false);
 //
+        
+    	if (doc.getOperationClassName().equals(OC_NEW) || doc.getStartedOperation().getName().equals(OP_SUBMIT) 
+				|| doc.getStartedOperation().getName().equals(OP_MODIFY_REJECT)){
+    		Co_Product_Nbr.setVisible(false);
+    	} else {
+    		Co_TmpProduct_Nbr.setVisible(false);
+    	}
 
     }
 
+	public KComboBox getFld_Product() {
+		return Co_TmpProduct_Nbr;
+	}
+
+    
     private static final long serialVersionUID = 1L;
 
     /**

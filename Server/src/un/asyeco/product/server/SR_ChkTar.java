@@ -15,13 +15,13 @@ import so.kernel.server.GCFServerEvent;
 import so.kernel.server.ServerRule;
 import so.kernel.server.UserTransactionEnvironment;
 import so.util.DebugOutput;
-import un.asyeco.eco.C_eCO;
+import un.asyeco.product.C_Product;
 import un.asyref.UNTARTABView.C_UNTARTABView;
 import un.globalConfig.util.GlobalServerConfigUtilities;
 import un.kernel.core.ArefHTCompatible;
 import un.kernel.server.ServerVerifierDelegator;
 
-public class SR_ChkTar extends ServerRule implements C_eCO {
+public class SR_ChkTar extends ServerRule implements C_Product {
 
 	// GVA <patch ID="TUNING" version="4.2.1" type="modification" date="DEC 12, 2012" author="ahmed">
 	private static String np = GlobalServerConfigUtilities.getProperty("Client.tar.config.NP");

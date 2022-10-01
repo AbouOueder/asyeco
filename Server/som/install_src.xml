@@ -161,6 +161,7 @@
 			<access bu="Customs CO">
 				<full />
 			</access>
+			
 				<folder name="Certificate of Origin" icon="">
 					<access bu="Customs CO">
 						<full />
@@ -195,20 +196,8 @@
 								<operation name="Lock" />	
 								<operation name="Unlock" />								
 							</access>
-						</item>
-					
-				</folder>
-								
-			<!-- SYSTEM FACE LIFT - July 2010 -->
-			<folder name="System Configuration" icon="img/Icon_Folder.gif">
-				<access bu="Customs CO">
-					<full />
-				</access>
-				<folder name="Serial Numbers" icon="">
-					<access bu="Customs CO">
-						<full />
-					</access>
-						<folder name="Certificate of Origin" icon="">
+						</item>		
+						<folder name="Serial Numbers" icon="">
 							<access bu="Customs CO">
 								<full />
 							</access>
@@ -224,8 +213,7 @@
 									<operation name="Lock" />
 									<operation name="Unlock" />						
 								</access>
-							</item>	
-							
+							</item>								
 							<item name="Certificate of Origin Submission" icon="">
 								<field name="binder" value="B_COSerialSubmit" />
 								<field name="skin" value="un.asyeco.serial.ast.client.VD_Ast" />
@@ -238,12 +226,9 @@
 									<operation name="Lock" />
 									<operation name="Unlock" />						
 								</access>
-							</item>								
-							
-						</folder>			
-				</folder>
-			</folder>
-				<!-- SYSTEM FACE LIFT - END -->
+							</item>																	
+					</folder>			
+				</folder>				
 		</folder>
     </DL>
 

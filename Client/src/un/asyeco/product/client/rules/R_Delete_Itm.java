@@ -79,6 +79,7 @@ public class R_Delete_Itm extends Rule implements C_Product {
 
 			DS_ProductItm child = (DS_ProductItm) vp.getAttachedDataSet();
 			KNumberedSubDocument itm = (KNumberedSubDocument)vp.getAttachedDataSet();
+			KNumberedSubDataSet itm_sds = (KNumberedSubDataSet) prod.ds(ITM); 
 			// there is no current child to delete
 			if (child == null) return;
 
@@ -94,7 +95,15 @@ public class R_Delete_Itm extends Rule implements C_Product {
 			MessageFormat formater = new MessageFormat(lng("Do you want to delete this page?, {0}?"));
 			int answer = KOptionPane
 					.showConfirmDialog(DesktopMain.sharedInstance(), formater.format(new Object[] { name }), lng("Confirmation"), KOptionPane.YES_NO_OPTION, KOptionPane.QUESTION_MESSAGE, null);
-			if (answer == KOptionPane.YES_OPTION) doDelete(prod, child);
+			if (answer == KOptionPane.YES_OPTION) {
+				doDelete(prod, child);
+				int totItms = itm_sds.countDocuments();
+				int oldTot = prod.ds(TOT).de(ITM).getInt(0);
+				if (totItms == oldTot)  prod.ds(TOT).de(ITM).setInteger(oldTot-1);
+				else  prod.ds(TOT).de(ITM).setInteger(totItms);
+				
+				prod.ds(TOT).de(ITM).changeOriginalContent();
+			} 
 		}
 	}
 

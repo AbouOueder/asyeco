@@ -124,6 +124,9 @@ public final class D_eCO extends KDocument implements C_eCO {
 		DataSet product = co.seg(PRODUCT);
 		product.add(NBR);
 		
+		DataSet tmpproduct = co.seg(TMPPRODUCT);
+		tmpproduct.add(NBR);
+		
 		DataSet wgt = co.seg(WGT);
 		wgt.add(GRS);
 		
@@ -256,6 +259,7 @@ public final class D_eCO extends KDocument implements C_eCO {
               
     	// 6. Approval no of goods
         ds(CO).ds(PRODUCT).de(NBR).setHumanName(lng("Number of approval goods"));     
+        ds(CO).ds(TMPPRODUCT).de(NBR).setHumanName(lng("Number of approval goods"));     
         
     	// 7. Gross weight or other measure
 
@@ -445,7 +449,7 @@ public final class D_eCO extends KDocument implements C_eCO {
         ds(CO).ds(PRODUCT).de(NBR).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);                
     	// 7. Gross weight or other measure
         ds(CO).ds(WGT).de(GRS).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY); 
-        ds(CO).ds(SUP).de(COD).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);
+        //ds(CO).ds(SUP).de(COD).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);
     	// 8. Invoice value      
         ds(CO).ds(INV).de(AMT).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);   
         ds(CO).ds(CUR).de(COD).addRule(KR_DataMandatory.sharedInstance(),	DATA_VERIFY);       
@@ -458,7 +462,7 @@ public final class D_eCO extends KDocument implements C_eCO {
 	}
 
 	public void define_AttachedFinderRule() {
-		ds(CO).ds(TAR).de(COD).setAttachedFinder("Product_Finder", "PRODUCT_CODE", lng("Products"));
+		ds(CO).ds(PRODUCT).de(NBR).setAttachedFinder("Product_Finder", "PRODUCT_CODE", lng("Products"));
 
 	//	ds(BAG).ds(CMP).de(COD).setAttachedFinder("AsyRefUNCMPTABView",	"cmpcode", lng("Company")); // Company
 

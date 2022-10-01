@@ -5,6 +5,7 @@
  */ 
 package un.asyeco.product.client.rules;
 import so.kernel.core.KDocument;
+import so.kernel.core.KNumberedSubDataSet;
 import so.kernel.core.KernelEvent;
 import so.kernel.core.Rule;
 import un.asyeco.product.C_Product;
@@ -41,8 +42,16 @@ public class R_New_Itm extends Rule implements C_Product {
 		
 		if (e.getData() instanceof D_Product) {
 			D_Product prod = (D_Product) e.getData();
+			KNumberedSubDataSet itm_sds = (KNumberedSubDataSet) prod.ds(ITM); 
 
 			prod.fire(new KernelEvent(ACT_ITM_NEW));
+			int totItms = itm_sds.countDocuments();
+			int oldTot = prod.ds(TOT).de(ITM).getInt(0);
+			if (totItms == oldTot)  prod.ds(TOT).de(ITM).setInteger(oldTot+1);
+			else  prod.ds(TOT).de(ITM).setInteger(totItms);
+			
+			prod.ds(TOT).de(ITM).changeOriginalContent();
+
 		}
 	}
 

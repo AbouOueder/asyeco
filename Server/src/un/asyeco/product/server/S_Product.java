@@ -84,7 +84,7 @@ public class S_Product extends GCFServerBinder implements C_Product {
 		// Producers
 		addServerRule(HistorizedServerRuleFactory.getServerRule(this, new int[] { PROD_TAB_LOAD }, PROD_TAB));
 //
-//		addServerRule(new SR_ChkTar(this), CHK_TAR);
+		addServerRule(new SR_ChkTar(this), CHK_TAR);
 //		addServerRule(new SR_Register(this), GET_NEXT_SERIAL_NUMBER);
 //		addServerRule(new SR_Submit(this), GET_NEXT_SUBMIT_NUMBER);
 		
@@ -162,7 +162,7 @@ public class S_Product extends GCFServerBinder implements C_Product {
 		OperationClass oc_Design = OperationFactory.makeDesignerOperation();
 		addReferenceModelEvents(oc_Design);		
 		addMiddleEvents(oc_Design);
-		//oc_Design.addEventID(CHK_TAR);
+		oc_Design.addEventID(CHK_TAR);
 		ops.add(oc_Design);
 
 		// View
@@ -198,7 +198,7 @@ public class S_Product extends GCFServerBinder implements C_Product {
 		oc_New.addVisibleEventID(MEN_ITM_NEW, ITM_NEW, lng(ITM_NEW), "img/Btn_New_Normal.gif");
 		oc_New.addVisibleEventID(MEN_ITM_DEL, ITM_DEL, lng(ITM_DEL), "img/Btn_Delete_Normal.gif");
 		
-		//oc_New.addEventID(CHK_TAR);
+		oc_New.addEventID(CHK_TAR);
 
 		// Register
 		int oe_create_Before_Events[] = { };

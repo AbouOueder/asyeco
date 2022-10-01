@@ -4,6 +4,7 @@
  * 
  */ 
 package un.asyeco.eco;
+
 import java.awt.Color;
 
 import so.kernel.Global;
@@ -60,14 +61,16 @@ public class F_eCO extends FinderInfo implements C_eCO {
 	private void addQueryBuildingPanel() {
 		
 
-		addFinder_SearchFld(ds(CO).de(NBR), lng("CO number"), Global.STRING_TYPE, "N10");
+		addFinder_SearchFld(ds(CO).de(NBR), lng("CO number"), Global.INTEGER_TYPE);
 		addFinder_SearchFld(ds(CO).de(CRN), lng("CRN"), Global.STRING_TYPE, "AN17");
+		addFinder_SearchFld(ds(CO).ds(SUB).de(NBR), lng("Submit number"), Global.INTEGER_TYPE);
 		addFinder_SearchFld(ds(CO).ds(CMP).ds(PROD).de(COD), lng("Producer code"), Global.STRING_TYPE, "AN17");
-		addFinder_SearchFld(ds(CO).ds(CMP).ds(PROD).de(NAM), lng("Producer name"), Global.STRING_TYPE, "AN35");
+		addFinder_SearchFld(ds(CO).ds(CMP).ds(PROD).de(NAM), lng("Producer name"), Global.STRING_TYPE, "AN75");
 		addFinder_SearchFld(ds(CO).ds(CTY).de(COD), lng("Country code origin "), Global.STRING_TYPE, "AN3");
-		addFinder_SearchFld(ds(CO).ds(PRODUCT).de(NBR), lng("Product number"), Global.STRING_TYPE, "N10");
-		//addFinder_SearchFld(ds(ISS).de(DAT), lng("Issue date"), Global.DATE_TYPE, "dd/MM/yyyy");
-		
+		addFinder_SearchFld(ds(CO).ds(PRODUCT).de(NBR), lng("Product number"), Global.STRING_TYPE, "AN11");
+		addFinder_SearchFld(ds(CO).ds(TAR).de(COD), lng("Tariff code"), Global.STRING_TYPE, "N10");
+		addFinder_SearchFld(ds(CO).ds(REG).de(DAT), lng("Reg. Date"),Global.DATE_TYPE, "dd/MM/yyyy");
+		addFinder_SearchFld(ds(CO).ds(SUB).de(DAT), lng("Submit. Date"),Global.DATE_TYPE, "dd/MM/yyyy");
 		
 
 		setDefaultCriteriaSize(500, 350);	
@@ -83,10 +86,15 @@ public class F_eCO extends FinderInfo implements C_eCO {
 		addFinder_ViewFld(ds(CO).de(NBR), lng("CO number"), "N10");
 		addFinder_ViewFld(ds(CO).de(CRN), lng("CRN"), "AN17");
 		addFinder_ViewFld(ds(CO).ds(PRODUCT).de(NBR), lng("Product number"), "N7");
+		addFinder_ViewFld(ds(CO).ds(SUB).de(NBR), lng("Submit number"), "N7");
 		addFinder_ViewFld(ds(CO).ds(CMP).ds(PROD).de(COD), lng("Producer code"), "AN17");
-		addFinder_ViewFld(ds(CO).ds(CMP).ds(PROD).de(NAM), lng("Producer name"), "AN75");
-		//addFinder_ViewFld(ds(ISS).de(DAT), lng("Issue date"), "dd/MM/yyyy");
+		addFinder_ViewFld(ds(CO).ds(CMP).ds(PROD).de(NAM), lng("Producer name"), "AN75");		
 		addFinder_ViewFld(ds(CO).ds(CTY).de(COD), lng("Country code origin "), "AN3");
+		addFinder_ViewFld(ds(CO).ds(TAR).de(COD), lng("Tariff code"),  "N10");
+		addFinder_ViewFld(ds(CO).ds(REG).de(DAT), lng("Reg. Date"), "dd/MM/yyyy");
+		addFinder_ViewFld(ds(CO).ds(SUB).de(DAT), lng("Submit. Date"), "dd/MM/yyyy");
+		// Sort
+		setDefaultSort(getList(ds(CO).ds(CTY).de(COD), ds(CO).de(CRN)), UP);
 
 		setResultPanelProperties();		
 	}
